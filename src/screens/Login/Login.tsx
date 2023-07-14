@@ -1,10 +1,8 @@
 import './Login.css';
 import useLogin from './useLogin';
 
-const Login: React.FC<{ isLogin: (isLogin: boolean) => void }> = (props) => {
-  const { fullName, isError, handleInputChange, handleSubmit } = useLogin(
-    props.isLogin
-  );
+const Login = () => {
+  const { fullName, isError, handleInputChange, handleSubmit } = useLogin();
 
   return (
     <div className="login-container">

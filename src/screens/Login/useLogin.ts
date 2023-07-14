@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { menuActions } from '../../store/menu-slice';
 
 interface LoginHookResult {
   fullName: string;
@@ -7,7 +9,8 @@ interface LoginHookResult {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-function useLogin(isLogin: (param: boolean) => void): LoginHookResult {
+function useLogin(): LoginHookResult {
+  const dispatch = useDispatch();
   const [fullName, setFullName] = useState<string>('');
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -22,8 +25,7 @@ function useLogin(isLogin: (param: boolean) => void): LoginHookResult {
       setIsError(true);
     } else {
       setIsError(false);
-      localStorage.setItem('Login', 'true');
-      isLogin(true);
+      dispatch(menuActions.login());
     }
   };
 

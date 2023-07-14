@@ -1,10 +1,19 @@
 import { RootState } from '../../store/store';
 import './Menu.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { menuActions } from '../../store/menu-slice';
 
 function Menu() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isOpenMenu = useSelector((state: RootState) => state.menu.isOpenMenu);
+
+  const handleClick = () => {
+    dispatch(menuActions.logout());
+    navigate('/');
+  };
 
   if (isOpenMenu) {
     return (
@@ -22,7 +31,11 @@ function Menu() {
             </li>
           </ul>
         </nav>
-        <button className="btn btn-logout">Logout</button>
+        <div>
+          <button onClick={handleClick} className="btn btn-logout">
+            Logout
+          </button>
+        </div>
       </aside>
     );
   }
