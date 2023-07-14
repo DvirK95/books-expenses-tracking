@@ -31,12 +31,16 @@ input:hover {
   border: solid 1px #222222;
 }
 
-.btn {
+.error {
+  border: solid 1px #f14668;
+}
+
+.btn-login {
   background-color: #5e5bff;
   color: white;
 }
 
-.btn:focus,
-.btn:hover {
+.btn-login:focus,
+.btn-login:hover {
   background-color: #5e5bffb3;
 }

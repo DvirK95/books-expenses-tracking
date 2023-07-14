@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+import menuReducer from './menu-slice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: { menu: menuReducer },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -1,20 +1,28 @@
 import './Login.css';
+import useLogin from './useLogin';
 
-function Login() {
+const Login: React.FC<{ isLogin: (isLogin: boolean) => void }> = (props) => {
+  const { fullName, isError, handleInputChange, handleSubmit } = useLogin(
+    props.isLogin
+  );
+
   return (
     <div className="login-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="fullName">Full name</label>
         <input
           type="text"
           id="fullName"
           name="fullName"
           placeholder="Place Your name..."
+          className={isError ? 'error' : ''}
+          value={fullName}
+          onChange={handleInputChange}
         />
-        <button className="btn">Login</button>
+        <button className="btn btn-login">Login</button>
       </form>
     </div>
   );
-}
+};
 
 export default Login;
