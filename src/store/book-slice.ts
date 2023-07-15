@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Book from '../models/book-model';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface BooksState {
   books: Book[];
@@ -11,8 +12,15 @@ const initialState: BooksState = {
 const booksSlice = createSlice({
   name: 'book',
   initialState,
-  reducers: {},
+  reducers: {
+    filterByName: (state, action: PayloadAction<string>) => {
+      const filterText = action.payload.trim().toLowerCase();
+      state.books = initialState.books.filter((book) =>
+        book.name.toLowerCase().includes(filterText)
+      );
+    },
+  },
 });
 
-export const bookActions = booksSlice.actions;
+export const { filterByName } = booksSlice.actions;
 export default booksSlice.reducer;

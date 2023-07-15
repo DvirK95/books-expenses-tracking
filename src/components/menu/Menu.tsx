@@ -1,23 +1,14 @@
-import { RootState } from '../../store/store';
+// Menu.tsx
 import './Menu.css';
-import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { menuActions } from '../../store/menu-slice';
+import { useMenu } from './useMenu';
 
 function Menu() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isOpenMenu = useSelector((state: RootState) => state.menu.isOpenMenu);
-
-  const handleClick = () => {
-    dispatch(menuActions.logout());
-    navigate('/');
-  };
+  const { isOpenMenu, handleClick } = useMenu();
 
   if (isOpenMenu) {
     return (
-      <aside className="sidebar-nav">
+      <aside className="sidebar">
         <nav className="menu-container">
           <ul>
             <li>
@@ -31,7 +22,7 @@ function Menu() {
             </li>
           </ul>
         </nav>
-        <div>
+        <div className="btn-wrapper">
           <button onClick={handleClick} className="btn btn-logout">
             Logout
           </button>
@@ -41,4 +32,5 @@ function Menu() {
   }
   return <></>;
 }
+
 export default Menu;

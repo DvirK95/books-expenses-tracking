@@ -1,0 +1,29 @@
+.filter-title {
+  display: flex;
+  font-size: 30px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.btn-clear-wrapper {
+  text-align: center;
+}
+
+.btn-clear {
+  background-color: #d36464;
+  font-size: 25px;
+  padding: 0.5rem 2rem;
+}
+
+.btn-filter {
+  background-color: var(--color-third);
+  font-size: 25px;
+  padding: 1rem 2rem;
+}
+
+.btn-filter-wrapper {
+  display: flex;
+  justify-content: center;
+}

@@ -5,8 +5,12 @@
   --color-primary: #c8c8c8;
   --color-secodary: #ababab;
   --color-third: #d9d9d9;
+  --color-card: #acacac;
 }
-
+body,
+html {
+  width: 100%;
+}
 body {
   background-color: var(--color-primary);
   box-sizing: border-box;
@@ -16,11 +20,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  display: flex;
+  flex-direction: column; /*centrelize evereything*/
+  width: 85%;
+  margin: 4rem auto;
+}
+
 .btn {
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%;
   font-weight: 700;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 50px;
 }

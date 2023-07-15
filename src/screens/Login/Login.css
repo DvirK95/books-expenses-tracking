@@ -38,6 +38,7 @@ input:hover {
 .btn-login {
   background-color: #5e5bff;
   color: white;
+  width: 100%;
 }
 
 .btn-login:focus,
