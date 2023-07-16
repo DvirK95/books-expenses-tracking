@@ -39,3 +39,13 @@ body {
   text-align: center;
   font-size: 50px;
 }
+
+.card-btn {
+  width: 100%;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 400;
+  margin: 0.1rem 0;
+}
