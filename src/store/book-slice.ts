@@ -11,9 +11,23 @@ const initialState: BooksState = {
       id: 1,
       name: "The Magician",
       author: "Eyal Berkovich",
-      purchaseDate: new Date('2023-07-16'),
-      price: 90
-    }
+      purchaseDate: new Date('2023-07-10'),
+      price: 99.90
+    },
+    {
+      id: 2,
+      name: "Offside Trap",
+      author: "Dean David",
+      purchaseDate: new Date('2023-07-11'),
+      price: 50
+    },
+    {
+      id: 3,
+      name: "Everywhere",
+      author: "Ali Mohamed",
+      purchaseDate: new Date('2023-07-12'),
+      price: 44.90
+    },
   ],
 };
 

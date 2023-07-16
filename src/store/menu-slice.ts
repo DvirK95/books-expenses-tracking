@@ -8,7 +8,7 @@ export interface MenuState {
 
 const initialState: MenuState = {
   screen: 'MyBook',
-  isOpenMenu: true,
+  isOpenMenu: false,
   isLogIn: Boolean(localStorage.getItem('Login')),
 };
 
