@@ -11,7 +11,7 @@ const initialState: BooksState = {
       id: 1,
       name: "The Magician",
       author: "Eyal Berkovich",
-      purchaseDate: '20230716',
+      purchaseDate: new Date('2023-07-16'),
       price: 90
     }
   ],

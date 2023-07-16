@@ -11,7 +11,11 @@ function BookExpenses() {
       <div>Purchase Date</div>
       <Card.Body>{BooksArr.map((book) => (
         <Row key={book.id}>
-          <Col>{book.name}</Col>
+          <Col size={3}>{book.name}</Col>
+          <Col size={3}>{book.author}</Col>
+          <Col size={3}>{book.purchaseDate.toISOString().split('T')[0] || ''}</Col>
+          <Col size={3}>{book.price}</Col>
+
         </Row>
       ))}</Card.Body>
     </Card>
