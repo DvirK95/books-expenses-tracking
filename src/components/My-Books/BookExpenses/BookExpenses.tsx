@@ -1,9 +1,9 @@
-import { MainCard } from '../../Cards/Card';
+import Card from '../../Cards/Card';
 function BookExpenses() {
   return (
-    <MainCard>
+    <Card>
       <div>Purchase Date</div>
-    </MainCard>
+    </Card>
   );
 }
 export default BookExpenses;

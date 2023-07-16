@@ -1,5 +1,5 @@
 import './FilterBooks.css';
-import { MainCard } from '../../Cards/Card';
+import Card from '../../Cards/Card';
 import { Col, Row } from '../../Grid/Grid';
 import useFilterBooks from './hooks/useFilterBooks';
 import FilterBooksButton from './FilterBooksButton';
@@ -7,7 +7,7 @@ import FilterBooksButton from './FilterBooksButton';
 function FilterBooks() {
   const { filterButtons } = useFilterBooks();
   return (
-    <MainCard>
+    <Card>
       <Row>
         <Col size={4} />
         <Col size={4}>
@@ -27,7 +27,7 @@ function FilterBooks() {
           </Col>
         ))}
       </Row>
-    </MainCard>
+    </Card>
   );
 }
 export default FilterBooks;
