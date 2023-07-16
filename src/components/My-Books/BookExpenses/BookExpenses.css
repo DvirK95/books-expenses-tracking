@@ -1,4 +1,3 @@
-.to-center{
-    display: flex;
-    justify-content: center;
+.book-details {
+  text-align: center;
 }

@@ -16,27 +16,39 @@ function BookExpenses() {
           <Row key={book.id}>
             <Col size={11}>
               <Row>
-                <Col size={3}>{book.name}</Col>
-                <Col size={3}>{book.author}</Col>
                 <Col size={3}>
-                  {book.purchaseDate.toISOString().split('T')[0] || ''}
+                  <div className="book-details">{book.name}</div>
                 </Col>
-                <Col size={3}>${book.price.toFixed(2)}</Col>
+                <Col size={3}>
+                  <div className="book-details">{book.author}</div>
+                </Col>
+                <Col size={3}>
+                  {' '}
+                  <div className="book-details">
+                    {book.purchaseDate.toISOString().split('T')[0] || ''}
+                  </div>
+                </Col>
+                <Col size={3}>
+                  {' '}
+                  <div className="book-details">${book.price.toFixed(2)}</div>
+                </Col>
               </Row>
             </Col>
             <Col size={1}>
               <Row>
-                <Col size={1}>
-                  <Dropdown
-                    trigger={<button>Dropdown</button>}
-                    menu={[
-                      <Card>
-                        <button className="card-btn">edit</button>
-                        <button className="card-btn">remove</button>
-                      </Card>,
-                    ]}
-                  />
-                </Col>
+                <Dropdown
+                  trigger={
+                    <div className="btn-wrapper-center">
+                      <button>V</button>
+                    </div>
+                  }
+                  menu={[
+                    <Card>
+                      <button className="card-btn">edit</button>
+                      <button className="card-btn">remove</button>
+                    </Card>,
+                  ]}
+                />
               </Row>
             </Col>
           </Row>
