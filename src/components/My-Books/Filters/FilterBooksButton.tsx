@@ -1,4 +1,3 @@
-import { Container } from '../Grid/Grid';
 import { FilterBooksButtonProps } from './hooks/interfaces';
 function FilterBooksButton({ filterButton }: FilterBooksButtonProps) {
   return (

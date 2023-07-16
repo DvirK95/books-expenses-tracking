@@ -1,4 +1,5 @@
-import FilterBooks from '../../components/My-Books/FilterBooks';
+import BookExpenses from '../../components/My-Books/BookExpenses/BookExpenses';
+import FilterBooks from '../../components/My-Books/Filters/FilterBooks';
 import { Container } from '../../components/Grid/Grid';
 function MyBooks() {
   return (
@@ -7,6 +8,7 @@ function MyBooks() {
       <Container>
         <FilterBooks />
       </Container>
+      <BookExpenses />
     </>
   );
 }

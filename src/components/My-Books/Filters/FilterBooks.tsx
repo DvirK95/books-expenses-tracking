@@ -1,6 +1,6 @@
 import './FilterBooks.css';
-import MainCard from '../Cards/MainCard';
-import { Col, Row } from '../Grid/Grid';
+import { MainCard } from '../../Cards/Card';
+import { Col, Row } from '../../Grid/Grid';
 import useFilterBooks from './hooks/useFilterBooks';
 import FilterBooksButton from './FilterBooksButton';
 

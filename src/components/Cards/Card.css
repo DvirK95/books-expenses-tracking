@@ -1,0 +1,15 @@
+.main-card {
+  background-color: var(--color-card);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  background-color: var(--color-third);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

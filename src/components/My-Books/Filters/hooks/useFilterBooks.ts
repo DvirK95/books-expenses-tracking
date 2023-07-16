@@ -1,4 +1,4 @@
-import { filterByName } from '../../../store/book-slice';
+import { filterByName } from '../../../../store/book-slice';
 import { FilterButton } from './interfaces';
 
 const useFilterBooks = () => {
