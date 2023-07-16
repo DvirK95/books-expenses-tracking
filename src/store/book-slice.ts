@@ -6,7 +6,15 @@ export interface BooksState {
   books: Book[];
 }
 const initialState: BooksState = {
-  books: [],
+  books: [
+    {
+      id: 1,
+      name: "The Magician",
+      author: "Eyal Berkovich",
+      purchaseDate: '20230716',
+      price: 90
+    }
+  ],
 };
 
 const booksSlice = createSlice({
