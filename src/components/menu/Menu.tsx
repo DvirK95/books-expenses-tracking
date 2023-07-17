@@ -3,11 +3,11 @@ import './Menu.css';
 import { NavLink } from 'react-router-dom';
 import { useMenu } from './useMenu';
 function Menu() {
-  const { isOpenMenu, handleClick } = useMenu();
+  const { isOpenMenu, handleClick, outsideClick } = useMenu();
 
   if (isOpenMenu) {
     return (
-      <aside className="sidebar">
+      <aside className="sidebar" ref={outsideClick}>
         <nav className="menu-container">
           <ul>
             <li>

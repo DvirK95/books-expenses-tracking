@@ -7,6 +7,7 @@ import { useOutsideClick } from '../useOutsideClick';
 interface MenuHook {
   isOpenMenu: boolean;
   handleClick: () => void;
+  outsideClick: React.RefObject<HTMLDivElement>;
 }
 
 export function useMenu(): MenuHook {
@@ -28,6 +29,6 @@ export function useMenu(): MenuHook {
   return {
     isOpenMenu,
     handleClick,
-    //outsideClick
+    outsideClick,
   };
 }

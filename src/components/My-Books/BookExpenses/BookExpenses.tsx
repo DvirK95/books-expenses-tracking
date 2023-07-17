@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import Card from '../../Cards/Card';
-import { Col, Row, Container } from '../../Grid/Grid';
+import { Col, Row } from '../../Grid/Grid';
 import { RootState } from '../../../store/store';
 import { ReactComponent as AngeleUpIcon } from '../../../assets/icons/angle-up-solid.svg';
 import { ReactComponent as AngeleDownIcon } from '../../../assets/icons/angle-down-solid.svg';
@@ -14,7 +14,6 @@ function BookExpenses() {
   const { dropdownStates, toggleDropdown } = useBookExpenses(
     BooksArr.map(() => false)
   );
-
   const iconStyle = {
     height: '2rem',
     width: '2rem',
