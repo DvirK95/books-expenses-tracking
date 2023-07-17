@@ -43,8 +43,6 @@ const booksSlice = createSlice({
         book.name.toLowerCase().includes(filterText)
       );
     },
-
-    // Add more reducers here
     pullTotalPrice: (state) => {
       let totalPrice = 0;
       for (const book of state.books) {
@@ -52,8 +50,11 @@ const booksSlice = createSlice({
       }
       state.totalPrice = totalPrice;
     },
+    addBook: (state, action: PayloadAction<Book>) => {
+      state.books.push(action.payload);
+    },
   },
 });
 
-export const { filterByName, pullTotalPrice } = booksSlice.actions;
+export const bookActions = booksSlice.actions;
 export default booksSlice.reducer;

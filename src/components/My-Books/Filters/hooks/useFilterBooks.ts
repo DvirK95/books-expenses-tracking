@@ -1,11 +1,11 @@
-import { filterByName } from '../../../../store/book-slice';
+import { bookActions } from '../../../../store/book-slice';
 import { FilterButton } from './interfaces';
 
 const useFilterBooks = () => {
   const filterButtons: FilterButton[] = [
     {
       name: 'Book name',
-      action: (filterText: string) => filterByName(filterText),
+      action: (filterText: string) => bookActions.filterByName(filterText),
     },
     {
       name: 'Book author',

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { useNavigate } from 'react-router-dom';
 import { menuActions } from '../../store/menu-slice';
+import { useOutsideClick } from '../useOutsideClick';
 
 interface MenuHook {
   isOpenMenu: boolean;
@@ -18,8 +19,15 @@ export function useMenu(): MenuHook {
     navigate('/');
   };
 
+  const outsideClick = useOutsideClick(() => {
+    if (isOpenMenu) {
+      dispatch(menuActions.switchBtn());
+    }
+  });
+
   return {
     isOpenMenu,
     handleClick,
+    //outsideClick
   };
 }

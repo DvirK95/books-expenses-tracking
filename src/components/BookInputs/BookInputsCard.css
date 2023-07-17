@@ -10,3 +10,38 @@
   text-align: center;
   font-weight: 700;
 }
+
+.book-inputs-field {
+  cursor: text;
+  background-color: var(--color-third);
+  text-align: center;
+  font-size: medium;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 400;
+  margin: 0.25rem 0;
+  box-shadow: 0 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.book-inputs-field:focus {
+  background-color: white;
+  border: none;
+  outline: none;
+}
+
+.date-input,
+.date-input:focus,
+.date-input:active {
+  background-color: transparent !important;
+  border: none;
+  outline: none !important;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: large;
+}
+button.book-inputs-field,
+.book-inputs-field::placeholder {
+  color: gray;
+}

@@ -13,7 +13,7 @@ label {
   margin-bottom: 0.2rem;
 }
 
-input {
+input.login {
   color: #222222;
   display: block;
   padding: 10px 15px;
@@ -25,13 +25,13 @@ input {
   color: #00000080;
 }
 
-input:focus,
-input:hover {
+input.login:focus,
+input.login:hover {
   outline: none;
   border: solid 1px #222222;
 }
 
-.error {
+input.error {
   border: solid 1px #f14668;
 }
 

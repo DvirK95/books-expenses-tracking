@@ -2,7 +2,6 @@
 import './Menu.css';
 import { NavLink } from 'react-router-dom';
 import { useMenu } from './useMenu';
-
 function Menu() {
   const { isOpenMenu, handleClick } = useMenu();
 

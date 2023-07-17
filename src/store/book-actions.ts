@@ -1,18 +1,28 @@
-//import { bookActions } from './book-slice';
-import { Dispatch } from 'redux';
+import Book from '../models/book-model';
+//import { Dispatch } from 'redux';
+/*
 
-/*
---js - change it to ts--
-export function funName () {
-    return function (dispatch) {
-        dispatch((bookActions.method))
-    }
-}
-*/
-/*
-export const filterBooksByName = (filterText: string) => {
+import { bookActions } from './book-slice';
+import { Dispatch } from 'redux';
+import { AppDispatch } from './store';
+
+
+export const pullTotalPrice = () => {
   return (dispatch: Dispatch) => {
-    dispatch(bookActions.filterByName(filterText));
+    dispatch(bookActions.pullTotalPrice());
+  };
+};
+
+export const filterByName = (str: string) => {
+  return (dispatch: Dispatch) => {
+    dispatch(bookActions.filterByName(str));
+  };
+};
+
+
+export const addBook = (bookObj: Book) => {
+  return (dispatch: AppDispatch) => {
+    dispatch(bookActions.addBook(bookObj));
   };
 };
 */

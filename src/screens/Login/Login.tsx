@@ -13,7 +13,7 @@ const Login = () => {
           id="fullName"
           name="fullName"
           placeholder="Place Your name..."
-          className={isError ? 'error' : ''}
+          className={isError ? 'login error' : 'login'}
           value={fullName}
           onChange={handleInputChange}
         />

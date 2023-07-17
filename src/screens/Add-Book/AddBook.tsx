@@ -6,7 +6,10 @@ function AddBook() {
     <Container width="45rem">
       <h1 className="page-title">Add Book</h1>
       <Card>
-        <BookInputsCard />
+        <br />
+        <Container width="93%">
+          <BookInputsCard />
+        </Container>
       </Card>
     </Container>
   );
