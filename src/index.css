@@ -37,21 +37,26 @@ body {
 
 .page-title {
   text-align: center;
-  font-size: 50px;
+  font-size: 3rem;
 }
 
 .card-btn {
   font-size: medium;
   width: 100%;
   border: none;
-  padding: 5px 15px;
+  padding: 1rem 2rem;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 400;
-  margin: 0.1rem 0;
+  margin: 0.25rem 0;
 }
 
 .btn-wrapper-center {
   display: flex;
   justify-content: center;
+}
+
+.btn-opacity {
+  background-color: inherit;
+  border: none;
 }

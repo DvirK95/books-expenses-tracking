@@ -1,0 +1,12 @@
+.btn-save {
+  margin-top: 1rem;
+  background-color: #68ae6fb2;
+  color: white;
+  padding: 1rem 4rem;
+  font-size: 1.5rem;
+}
+
+.title-edit-book {
+  text-align: center;
+  font-weight: 700;
+}

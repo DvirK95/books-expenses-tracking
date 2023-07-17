@@ -1,0 +1,10 @@
+.total-expenses-font {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.total-expenses-wrapper {
+  margin-top: 9rem;
+  position: relative;
+  right: -9rem;
+}

@@ -14,12 +14,33 @@ const Container: React.FC<ContainerProps> = ({ children, width = '85%' }) => {
   );
 };
 
-const Row: React.FC<RowProps> = ({ children }) => {
-  return <div className="row">{children}</div>;
+const Row: React.FC<RowProps> = ({ children, maxHeight, className }) => {
+  const rowStyle: React.CSSProperties = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    margin: '0.25rem 0',
+    maxHeight: maxHeight || 'none',
+  };
+
+  return (
+    <div className={!className ? 'row' : `row ${className}`} style={rowStyle}>
+      {children}
+    </div>
+  );
 };
 
-const Col: React.FC<ColProps> = ({ size = 12, children }) => {
-  return <div className={`col-${size}`}>{children}</div>;
+const Col: React.FC<ColProps> = ({ size = 12, maxHeight, children }) => {
+  const colStyle: React.CSSProperties = {
+    position: 'relative',
+    width: '100%',
+    maxHeight: maxHeight || `calc(100% / ${size})`,
+  };
+
+  return (
+    <div className={`col-${size}`} style={colStyle}>
+      {children}
+    </div>
+  );
 };
 
 export { Container, Row, Col };

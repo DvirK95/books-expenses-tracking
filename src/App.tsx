@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import { RootState } from './store/store';
 import { useSelector } from 'react-redux';
 import MyBooks from './screens/My-Books/MyBooks';
+import AddBook from './screens/Add-Book/AddBook';
+import TotalExpenses from './screens/Total-Expenses/TotalExpenses';
 
 function App() {
   const isLoggedIn = useSelector((state: RootState) => state.menu.isLogIn);
@@ -17,6 +19,8 @@ function App() {
         <main className="container">
           <Routes>
             <Route path="/" element={<MyBooks />} />
+            <Route path="/add" element={<AddBook />} />
+            <Route path="/expenses" element={<TotalExpenses />} />
           </Routes>
         </main>
       </>
