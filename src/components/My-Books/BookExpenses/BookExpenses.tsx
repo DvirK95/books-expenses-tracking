@@ -7,13 +7,13 @@ import { ReactComponent as AngeleDownIcon } from '../../../assets/icons/angle-do
 import useBookExpenses from './useBookExpenses';
 import './BookExpenses.css';
 import Dropdown from './DropDown/Dropdown';
+import EditBook from './EditBook/EditBook';
 
 function BookExpenses() {
   const BooksArr = useSelector((state: RootState) => state.book.books);
+  const { dropdownStates, toggleDropdown, toggleModal, isModalOpen } =
+    useBookExpenses(BooksArr.map(() => false));
 
-  const { dropdownStates, toggleDropdown } = useBookExpenses(
-    BooksArr.map(() => false)
-  );
   const iconStyle = {
     height: '2rem',
     width: '2rem',
@@ -57,7 +57,18 @@ function BookExpenses() {
                     )}
                   </button>
                 </div>
-                {dropdownStates[index] && <Dropdown />}
+                {dropdownStates[index] && (
+                  <Dropdown
+                    toggleDropdown={toggleDropdown}
+                    index={index}
+                    toggleModal={toggleModal}
+                  />
+                )}
+                <EditBook
+                  toggleModal={toggleModal}
+                  isModalOpen={isModalOpen}
+                  index={index}
+                />
               </Row>
             </Col>
           </Row>

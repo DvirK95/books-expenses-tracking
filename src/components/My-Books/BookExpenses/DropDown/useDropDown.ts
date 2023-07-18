@@ -1,17 +1,16 @@
-import { useState } from 'react';
+import { ToggleDropDownProps } from './interfaces';
 
-function useDropDown() {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
+export default function useDropdown({
+  toggleDropdown,
+  index,
+  toggleModal,
+}: ToggleDropDownProps) {
+  const handleClickEdit = () => {
+    toggleDropdown(index);
+    toggleModal();
   };
 
-  const handleModalClose = () => {
-    setIsModalOpen(false);
+  return {
+    handleClickEdit,
   };
-
-  return { isModalOpen, handleModalOpen, handleModalClose };
 }
-
-export default useDropDown;

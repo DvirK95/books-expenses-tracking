@@ -1,41 +1,19 @@
-import { useEffect, useRef } from 'react';
+import { ReactNode } from 'react';
 import './Modal.css';
-
-interface ModalProps {
+interface ModalType {
+  children?: ReactNode;
   isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
+  toggle: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
-  const modalRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
-
+export default function Modal(props: ModalType) {
   return (
-    <div className="modal" ref={modalRef}>
-      <div className="modal-content">{children}</div>
-    </div>
+    <>
+      {props.isOpen && (
+        <div className="modal-overlay" onClick={props.toggle}>
+          <div onClick={(e) => e.stopPropagation()}>{props.children}</div>
+        </div>
+      )}
+    </>
   );
-};
-
-export default Modal;
+}

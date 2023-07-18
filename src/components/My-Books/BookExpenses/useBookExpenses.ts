@@ -10,8 +10,12 @@ function useBookExpenses(initialState: boolean[]) {
       return updatedStates;
     });
   };
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
-  return { dropdownStates, toggleDropdown };
+  return { dropdownStates, toggleDropdown, toggleModal, isModalOpen };
 }
 
 export default useBookExpenses;
