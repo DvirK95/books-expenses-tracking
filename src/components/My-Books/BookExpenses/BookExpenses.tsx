@@ -8,6 +8,7 @@ import useBookExpenses from './useBookExpenses';
 import './BookExpenses.css';
 import Dropdown from './DropDown/Dropdown';
 import EditBook from './EditBook/EditBook';
+import { formatDate } from '../../../assets/formatDate';
 
 function BookExpenses() {
   const booksArr = useSelector((state: RootState) => state.book.books);
@@ -35,7 +36,7 @@ function BookExpenses() {
                 </Col>
                 <Col size={3}>
                   <div className="book-details">
-                    {book.purchaseDate.toISOString().split('T')[0] || ''}
+                    {formatDate(book.purchaseDate || '')}
                   </div>
                 </Col>
                 <Col size={3}>
@@ -65,12 +66,7 @@ function BookExpenses() {
                     book={book}
                   />
                 )}
-                <EditBook
-                  isModalOpen={isModalOpen}
-                  toggleModal={toggleModal}
-                  book={book}
-                  index={index}
-                />
+                <EditBook isModalOpen={isModalOpen} toggleModal={toggleModal} />
               </Row>
             </Col>
           </Row>

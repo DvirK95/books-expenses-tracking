@@ -47,7 +47,7 @@ export function useInputsCard({ close, edit }: BookInputsCardProp) {
       return;
     }
     const updatedBookObj: Book = {
-      id: 4,
+      id: book ? book.id : 0,
       name: bookName,
       author,
       purchaseDate: purchaseDate,

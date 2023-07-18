@@ -65,12 +65,13 @@ const booksSlice = createSlice({
       state.books[lastBookBefore + 1].id = lastBookId + 1;
     },
     updateBook: (state, action: PayloadAction<Book>) => {
-      for (let book of state.books) {
-        if (action.payload.id === book.id) {
-          console.log(`payload${action.payload}`);
-          console.log(`currentbook${book}`);
-          book = action.payload;
-        }
+      console.log(action.payload);
+      const index = state.books.findIndex(
+        (book) => book.id === action.payload.id
+      );
+      if (index !== -1) {
+        console.log('Book found!');
+        state.books[index] = action.payload;
       }
     },
     removeBook: (state, action: PayloadAction<number>) => {

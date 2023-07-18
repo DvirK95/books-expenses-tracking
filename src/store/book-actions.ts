@@ -9,14 +9,14 @@ export function removeBook(id: number) {
   };
 }
 export function addBook(book: Book) {
-  return function (dispatch: any) {
+  return function (dispatch: AppDispatch) {
     dispatch(bookActions.addBook(book));
     dispatch(bookActions.pullTotalPrice());
   };
 }
 
 export function updateBook(book: Book) {
-  return function (dispatch: any) {
+  return function (dispatch: AppDispatch) {
     dispatch(bookActions.updateBook(book));
     dispatch(bookActions.pullTotalPrice());
   };
