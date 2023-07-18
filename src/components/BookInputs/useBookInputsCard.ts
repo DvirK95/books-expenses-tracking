@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { bookActions } from '../../store/book-slice';
+import { addBook, updateBook } from '../../store/book-actions';
 import Book from '../../models/book-model';
+import { AppDispatch } from '../../store/store';
 
 export interface BookInputsCardProp {
   close?: () => void;
@@ -21,7 +22,7 @@ export function useInputsCard({ close, book }: BookInputsCardProp) {
   );
 
   const [price, setPrice] = useState<string>(book ? String(book.price) : '');
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   const handleClickDate = () => {
     setIsClicked(true);
@@ -49,9 +50,9 @@ export function useInputsCard({ close, book }: BookInputsCardProp) {
     };
     //  edit or update
     if (book) {
-      dispatch(bookActions.updateBook(updatedBookObj));
+      dispatch(updateBook(updatedBookObj));
     } else {
-      dispatch(bookActions.addBook(updatedBookObj));
+      dispatch(addBook(updatedBookObj));
       alert(`${bookName} successfully added`);
     }
   };

@@ -1,28 +1,23 @@
 import Book from '../models/book-model';
-//import { Dispatch } from 'redux';
-/*
-
 import { bookActions } from './book-slice';
-import { Dispatch } from 'redux';
 import { AppDispatch } from './store';
 
-
-export const pullTotalPrice = () => {
-  return (dispatch: Dispatch) => {
+export function removeBook(id: number) {
+  return function (dispatch: AppDispatch) {
+    dispatch(bookActions.removeBook(id));
     dispatch(bookActions.pullTotalPrice());
   };
-};
-
-export const filterByName = (str: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch(bookActions.filterByName(str));
+}
+export function addBook(book: Book) {
+  return function (dispatch: any) {
+    dispatch(bookActions.addBook(book));
+    dispatch(bookActions.pullTotalPrice());
   };
-};
+}
 
-
-export const addBook = (bookObj: Book) => {
-  return (dispatch: AppDispatch) => {
-    dispatch(bookActions.addBook(bookObj));
+export function updateBook(book: Book) {
+  return function (dispatch: any) {
+    dispatch(bookActions.updateBook(book));
+    dispatch(bookActions.pullTotalPrice());
   };
-};
-*/
+}

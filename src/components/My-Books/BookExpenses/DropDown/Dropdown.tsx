@@ -1,11 +1,17 @@
 import Card from '../../../Cards/Card';
 import { ToggleDropDownProps } from './interfaces';
 import useDropdown from './useDropdown';
-function Dropdown({ toggleDropdown, index, toggleModal }: ToggleDropDownProps) {
-  const { handleClickEdit } = useDropdown({
+function Dropdown({
+  toggleDropdown,
+  index,
+  book,
+  toggleModal,
+}: ToggleDropDownProps) {
+  const { handleClickEdit, handleClickRemove } = useDropdown({
     toggleDropdown,
     index,
     toggleModal,
+    book,
   });
 
   return (
@@ -14,7 +20,9 @@ function Dropdown({ toggleDropdown, index, toggleModal }: ToggleDropDownProps) {
         <button className="card-btn" onClick={handleClickEdit}>
           Edit
         </button>
-        <button className="card-btn">Remove</button>
+        <button className="card-btn" onClick={handleClickRemove}>
+          Remove
+        </button>
       </Card>
     </div>
   );

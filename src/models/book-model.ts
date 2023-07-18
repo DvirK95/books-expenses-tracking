@@ -1,9 +1,8 @@
-
 type Book = {
   id: number;
   name: string;
   author: string;
-  purchaseDate: Date;
+  purchaseDate: Date | Date;
   price: number;
 };
 

@@ -10,9 +10,9 @@ import Dropdown from './DropDown/Dropdown';
 import EditBook from './EditBook/EditBook';
 
 function BookExpenses() {
-  const BooksArr = useSelector((state: RootState) => state.book.books);
+  const booksArr = useSelector((state: RootState) => state.book.books);
   const { dropdownStates, toggleDropdown, toggleModal, isModalOpen } =
-    useBookExpenses(BooksArr.map(() => false));
+    useBookExpenses(booksArr.map(() => false));
 
   const iconStyle = {
     height: '2rem',
@@ -22,7 +22,7 @@ function BookExpenses() {
   return (
     <Card>
       <div>Purchase Date</div>
-      {BooksArr.map((book, index) => (
+      {booksArr.map((book, index) => (
         <Card.Body key={book.id}>
           <Row>
             <Col size={11}>
@@ -62,6 +62,7 @@ function BookExpenses() {
                     toggleDropdown={toggleDropdown}
                     index={index}
                     toggleModal={toggleModal}
+                    book={book}
                   />
                 )}
                 <EditBook

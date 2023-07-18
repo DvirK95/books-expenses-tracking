@@ -51,8 +51,10 @@ const booksSlice = createSlice({
       state.totalPrice = totalPrice;
     },
     addBook: (state, action: PayloadAction<Book>) => {
-      //toDo add new id
+      const lastBookBefore = state.books.length - 1;
+      const lastBookId = state.books[lastBookBefore].id;
       state.books.push(action.payload);
+      state.books[lastBookBefore + 1].id = lastBookId + 1;
     },
     updateBook: (state, action: PayloadAction<Book>) => {
       for (let book of state.books) {
@@ -62,6 +64,9 @@ const booksSlice = createSlice({
           book = action.payload;
         }
       }
+    },
+    removeBook: (state, action: PayloadAction<number>) => {
+      state.books = state.books.filter((book) => book.id !== action.payload);
     },
   },
 });
