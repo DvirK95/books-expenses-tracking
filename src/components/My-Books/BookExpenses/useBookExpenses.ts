@@ -10,6 +10,7 @@ function useBookExpenses(initialState: boolean[]) {
     });
   };
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
