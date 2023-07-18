@@ -2,6 +2,8 @@ import { ToggleDropDownProps } from './interfaces';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../../../store/book-actions';
 import { AppDispatch } from '../../../../store/store';
+import { bookActions } from '../../../../store/book-slice';
+
 export default function useDropdown({
   toggleDropdown,
   index,
@@ -12,6 +14,8 @@ export default function useDropdown({
 
   const handleClickEdit = () => {
     toggleDropdown(index);
+    // set property to the modal
+    dispatch(bookActions.setCurrentBookModal(book));
     toggleModal();
   };
 

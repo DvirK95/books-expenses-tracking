@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import Book from '../../../models/book-model';
 
 function useBookExpenses(initialState: boolean[]) {
   const [dropdownStates, setDropdownStates] = useState<boolean[]>(initialState);
-
+  const [currentBook, setCurentBook] = useState<Book>();
   const toggleDropdown = (index: number) => {
     setDropdownStates((prevState) => {
       const updatedStates = [...prevState];

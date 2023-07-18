@@ -2,7 +2,7 @@ type Book = {
   id: number;
   name: string;
   author: string;
-  purchaseDate: Date | Date;
+  purchaseDate: Date;
   price: number;
 };
 

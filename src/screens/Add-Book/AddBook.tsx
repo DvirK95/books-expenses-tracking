@@ -8,7 +8,7 @@ function AddBook() {
       <Card>
         <br />
         <Container width="93%">
-          <BookInputsCard />
+          <BookInputsCard edit={false} />
         </Container>
       </Card>
     </Container>

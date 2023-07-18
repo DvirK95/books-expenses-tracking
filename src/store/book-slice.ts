@@ -5,6 +5,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 export interface BooksState {
   books: Book[];
   totalPrice: number;
+  currentBookModal?: Book;
 }
 const initialState: BooksState = {
   books: [
@@ -31,6 +32,13 @@ const initialState: BooksState = {
     },
   ],
   totalPrice: 194.8,
+  currentBookModal: {
+    id: 3,
+    name: 'Im Everywhere',
+    author: 'Ali Mohamed',
+    purchaseDate: new Date('2023-07-12'),
+    price: 44.9,
+  },
 };
 
 const booksSlice = createSlice({
@@ -67,6 +75,9 @@ const booksSlice = createSlice({
     },
     removeBook: (state, action: PayloadAction<number>) => {
       state.books = state.books.filter((book) => book.id !== action.payload);
+    },
+    setCurrentBookModal: (state, action: PayloadAction<Book>) => {
+      state.currentBookModal = action.payload;
     },
   },
 });

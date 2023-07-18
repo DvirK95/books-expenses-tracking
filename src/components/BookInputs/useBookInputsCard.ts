@@ -2,26 +2,31 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook, updateBook } from '../../store/book-actions';
 import Book from '../../models/book-model';
-import { AppDispatch } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
+import { useSelector } from 'react-redux';
 
 export interface BookInputsCardProp {
   close?: () => void;
-  book?: Book;
+  edit: boolean;
 }
 
-export function useInputsCard({ close, book }: BookInputsCardProp) {
+export function useInputsCard({ close, edit }: BookInputsCardProp) {
+  const book = useSelector((state: RootState) => state.book.currentBookModal);
+
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [bookName, setBookName] = useState<string>(
-    book ? book.name : 'Book_name'
+    edit && book ? book.name : 'Book_name'
   );
   const [author, setAuthor] = useState<string>(
-    book ? book.author : 'Book_author'
+    edit && book ? book.author : 'Book_author'
   );
   const [purchaseDate, setPurchaseDate] = useState<Date | null>(
-    book ? book.purchaseDate : new Date()
+    edit && book ? book.purchaseDate : new Date()
   );
 
-  const [price, setPrice] = useState<string>(book ? String(book.price) : '');
+  const [price, setPrice] = useState<string>(
+    edit && book ? String(book.price) : ''
+  );
   const dispatch: AppDispatch = useDispatch();
 
   const handleClickDate = () => {
