@@ -1,20 +1,27 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { bookActions } from '../../store/book-slice';
-import { useNavigate } from 'react-router-dom';
+import Book from '../../models/book-model';
 
 export interface BookInputsCardProp {
   close?: () => void;
+  book?: Book;
 }
 
-export function useInputsCard({ close }: BookInputsCardProp = {}) {
+export function useInputsCard({ close, book }: BookInputsCardProp) {
   const [isClicked, setIsClicked] = useState<boolean>(false);
-  const [bookName, setBookName] = useState<string>('');
-  const [author, setAuthor] = useState<string>('');
-  const [purchaseDate, setPurchaseDate] = useState<Date>(new Date());
-  const [price, setPrice] = useState<string>();
+  const [bookName, setBookName] = useState<string>(
+    book ? book.name : 'Book_name'
+  );
+  const [author, setAuthor] = useState<string>(
+    book ? book.author : 'Book_author'
+  );
+  const [purchaseDate, setPurchaseDate] = useState<Date | null>(
+    book ? book.purchaseDate : new Date()
+  );
+
+  const [price, setPrice] = useState<string>(book ? String(book.price) : '');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleClickDate = () => {
     setIsClicked(true);
@@ -33,21 +40,20 @@ export function useInputsCard({ close }: BookInputsCardProp = {}) {
       alert('Please enter a valid price.');
       return;
     }
-
-    dispatch(
-      bookActions.addBook({
-        id: 4,
-        name: bookName,
-        author,
-        purchaseDate: purchaseDate as Date,
-        price: parsedPrice,
-      })
-    );
-
-    if (close) {
-      close();
+    const updatedBookObj: Book = {
+      id: 4,
+      name: bookName,
+      author,
+      purchaseDate: purchaseDate,
+      price: parsedPrice,
+    };
+    //  edit or update
+    if (book) {
+      dispatch(bookActions.updateBook(updatedBookObj));
+    } else {
+      dispatch(bookActions.addBook(updatedBookObj));
+      alert(`${bookName} successfully added`);
     }
-    navigate('/');
   };
 
   return {

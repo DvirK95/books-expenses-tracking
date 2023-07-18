@@ -51,7 +51,17 @@ const booksSlice = createSlice({
       state.totalPrice = totalPrice;
     },
     addBook: (state, action: PayloadAction<Book>) => {
+      //toDo add new id
       state.books.push(action.payload);
+    },
+    updateBook: (state, action: PayloadAction<Book>) => {
+      for (let book of state.books) {
+        if (action.payload.id === book.id) {
+          console.log(`payload${action.payload}`);
+          console.log(`currentbook${book}`);
+          book = action.payload;
+        }
+      }
     },
   },
 });

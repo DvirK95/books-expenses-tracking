@@ -1,8 +1,10 @@
 import './BookInputsCard.css';
 import { useInputsCard } from './useBookInputsCard';
 import { BookInputsCardProp } from './useBookInputsCard';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-function BookInputsCard({ close }: BookInputsCardProp) {
+function BookInputsCard({ close, book }: BookInputsCardProp) {
   const {
     isClicked,
     handleClickDate,
@@ -10,11 +12,12 @@ function BookInputsCard({ close }: BookInputsCardProp) {
     setBookName,
     author,
     setAuthor,
+    purchaseDate,
     price,
     setPrice,
     handleSave,
     setPurchaseDate,
-  } = useInputsCard();
+  } = useInputsCard({ book });
 
   return (
     <>
@@ -23,34 +26,33 @@ function BookInputsCard({ close }: BookInputsCardProp) {
         type="text"
         id="name"
         name="name"
-        placeholder="Book_name"
-        value={bookName}
+        placeholder={bookName}
+        value={book && bookName}
         onChange={(e) => setBookName(e.target.value)}
       />
       <input
         className="book-inputs-field"
         type="text"
-        placeholder="Book_author"
+        placeholder={author}
         id="author"
         name="author"
-        value={author}
+        value={book && author}
         onChange={(e) => setAuthor(e.target.value)}
       />
-
       <button className="book-inputs-field" onClick={handleClickDate}>
-        {isClicked ? (
-          <input
+        {isClicked || book ? (
+          <DatePicker
             className="date-input"
-            type="date"
-            id="date"
-            name="date"
-            onChange={(e) => setPurchaseDate(new Date(e.target.value))}
+            selected={purchaseDate}
+            onChange={(date) => setPurchaseDate(date)}
+            minDate={new Date('1900-12-31')}
+            maxDate={new Date()}
+            dateFormat="dd/MM/yyyy"
           />
         ) : (
           <>Purchase_Date</>
         )}
       </button>
-
       <input
         className="book-inputs-field"
         placeholder="price"

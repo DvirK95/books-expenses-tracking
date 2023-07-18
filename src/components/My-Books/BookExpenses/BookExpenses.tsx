@@ -65,8 +65,9 @@ function BookExpenses() {
                   />
                 )}
                 <EditBook
-                  toggleModal={toggleModal}
                   isModalOpen={isModalOpen}
+                  toggleModal={toggleModal}
+                  book={book}
                   index={index}
                 />
               </Row>
