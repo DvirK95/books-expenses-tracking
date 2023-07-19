@@ -1,7 +1,5 @@
-import { useSelector } from 'react-redux';
 import Card from '../../Cards/Card';
 import { Col, Row } from '../../Grid/Grid';
-import { RootState } from '../../../store/store';
 import { ReactComponent as AngeleUpIcon } from '../../../assets/icons/angle-up-solid.svg';
 import { ReactComponent as AngeleDownIcon } from '../../../assets/icons/angle-down-solid.svg';
 import useBookExpenses from './useBookExpenses';
@@ -13,7 +11,6 @@ import Book from '../../../models/book-model';
 interface BookExpensesProp{booksArr: Book[]}
 
 function BookExpenses({booksArr}: BookExpensesProp ) {
-  //const booksArr = useSelector((state: RootState) => state.book.books);
   const { dropdownStates, toggleDropdown, toggleModal, isModalOpen } =
     useBookExpenses(booksArr.map(() => false));
 

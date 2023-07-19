@@ -1,21 +1,3 @@
-import { type } from "os";
-
-export interface FilterButton {
-  name: string;
-  action: any;
-}
-
-export interface FilterBooksButtonProps {
-  filterButton: FilterButton;
-}
-
-export interface Filters{
-  bookName: string;
-  author: string;
-  purchaseDate: string;
-  price: string;
-}
-
 export interface FilterBooksProps {
   filters: {
     bookName: string;

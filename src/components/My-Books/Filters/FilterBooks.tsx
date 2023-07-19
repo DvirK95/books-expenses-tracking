@@ -3,10 +3,8 @@ import Card from '../../Cards/Card';
 import { Col, Row } from '../../Grid/Grid';
 import FilterBooksButton from './FilterBooksButton';
 import { FilterBooksProps } from './hooks/interfaces';
-import useFilterBooks from './hooks/useFilterBooks';
 
 function FilterBooks(prop : FilterBooksProps ) {
-  //const {} = useFilterBooks()
   
   return (
     <Card>

@@ -20,7 +20,7 @@ function MyBooks() {
       );
     });
     setFilteredBooks(filtered);
-  }, [allBooks, filters.bookName, filters.author, filters.purchaseDate, filters.price]);
+  }, [allBooks, filters.bookName, filters.author, filters.purchaseDate, filters.price, setFilteredBooks]);
 
   return (
     <>
