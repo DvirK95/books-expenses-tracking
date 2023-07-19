@@ -4,7 +4,7 @@ import { BookInputsCardProp } from './useBookInputsCard';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function BookInputsCard({ close, edit }: BookInputsCardProp) {
+function BookInputsCard({ close, edit, toggleModal }: BookInputsCardProp) {
   const {
     isClicked,
     handleClickDate,
@@ -17,7 +17,7 @@ function BookInputsCard({ close, edit }: BookInputsCardProp) {
     setPrice,
     handleSave,
     setPurchaseDate,
-  } = useInputsCard({ edit });
+  } = useInputsCard({ edit, toggleModal });
 
   return (
     <>

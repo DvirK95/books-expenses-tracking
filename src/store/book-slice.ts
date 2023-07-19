@@ -70,7 +70,6 @@ const booksSlice = createSlice({
         (book) => book.id === action.payload.id
       );
       if (index !== -1) {
-        console.log('Book found!');
         state.books[index] = action.payload;
       }
     },

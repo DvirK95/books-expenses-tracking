@@ -10,7 +10,7 @@ function EditBook({ isModalOpen, toggleModal }: EditBookProps) {
       <Card>
         <h2 className="title-edit-book">Edit Book</h2>
         <Container width="45rem">
-          <BookInputsCard edit={true} />
+          <BookInputsCard edit={true} toggleModal={toggleModal} />
         </Container>
       </Card>
     </Modal>

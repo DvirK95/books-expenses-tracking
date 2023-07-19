@@ -8,9 +8,10 @@ import { useSelector } from 'react-redux';
 export interface BookInputsCardProp {
   close?: () => void;
   edit: boolean;
+  toggleModal?: () => void;
 }
 
-export function useInputsCard({ close, edit }: BookInputsCardProp) {
+export function useInputsCard({ close, edit, toggleModal }: BookInputsCardProp) {
   const book = useSelector((state: RootState) => state.book.currentBookModal);
 
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -54,12 +55,13 @@ export function useInputsCard({ close, edit }: BookInputsCardProp) {
       price: parsedPrice,
     };
     //  edit or update
-    if (book) {
+    if (edit) {
       dispatch(updateBook(updatedBookObj));
     } else {
       dispatch(addBook(updatedBookObj));
       alert(`${bookName} successfully added`);
     }
+    toggleModal && toggleModal()
   };
 
   return {
