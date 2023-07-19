@@ -60,8 +60,9 @@ export function useInputsCard({ close, edit, toggleModal }: BookInputsCardProp) 
     } else {
       dispatch(addBook(updatedBookObj));
       alert(`${bookName} successfully added`);
+      toggleModal && toggleModal()
+
     }
-    toggleModal && toggleModal()
   };
 
   return {
