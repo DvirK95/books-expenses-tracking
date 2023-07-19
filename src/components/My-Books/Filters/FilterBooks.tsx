@@ -9,17 +9,18 @@ function FilterBooks() {
   return (
     <Card>
       <Row>
-        <Col size={4} />
-        <Col size={4}>
+        <Col size={3} />
+        <Col size={6}>
           <div className="filter-title">Filter books</div>
         </Col>
-        <Col size={2} />
-        <Col size={2}>
+
+        <Col size={3}>
           <div className="btn-clear-wrapper">
             <button className="btn btn-clear">Clean</button>
           </div>
         </Col>
       </Row>
+      <br />
       <Row>
         {filterButtons.map((filterButton) => (
           <Col size={3} key={filterButton.name}>
