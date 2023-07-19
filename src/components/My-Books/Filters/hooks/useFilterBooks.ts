@@ -1,27 +1,13 @@
-import { bookActions } from '../../../../store/book-slice';
-import { FilterButton } from './interfaces';
+import { type } from "os";
+import { FilterBooksProps } from "./interfaces";
 
-const useFilterBooks = () => {
-  const filterButtons: FilterButton[] = [
-    {
-      name: 'Book name',
-      action: (filterText: string) => bookActions.filterByName(filterText),
-    },
-    {
-      name: 'Book author',
-      action: 'void',
-    },
-    {
-      name: 'Purchase Date',
-      action: 'void',
-    },
-    {
-      name: 'Price',
-      action: 'void',
-    },
-  ];
+function useFilterBooks() {
+
+ const handleClear = () => {
+  
+}
   return {
-    filterButtons,
+    handleClear
   };
 };
 export default useFilterBooks;

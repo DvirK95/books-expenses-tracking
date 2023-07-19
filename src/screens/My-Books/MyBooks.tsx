@@ -5,7 +5,7 @@ import { Container } from '../../components/Grid/Grid';
 import useMyBooks from './useMyBooks';
 
 function MyBooks() {
-  const {allBooks, filters, setFilters, filteredBooks, setFilteredBooks} = useMyBooks()
+  const {allBooks, filters, setFilters, filteredBooks, setFilteredBooks, handleClear} = useMyBooks()
 
   useEffect(() => {
     const filtered = allBooks.filter((book) => {
@@ -52,7 +52,8 @@ function MyBooks() {
               price: event.target.value,
             }))
           }
-        />
+          handleClear={handleClear}
+          />
       </Container>
       <BookExpenses booksArr={filteredBooks} />
     </>

@@ -3,9 +3,11 @@ import Card from '../../Cards/Card';
 import { Col, Row } from '../../Grid/Grid';
 import FilterBooksButton from './FilterBooksButton';
 import { FilterBooksProps } from './hooks/interfaces';
+import useFilterBooks from './hooks/useFilterBooks';
 
-function FilterBooks(prop : FilterBooksProps) {
-  //const { filterButtons } = useFilterBooks();
+function FilterBooks(prop : FilterBooksProps ) {
+  //const {} = useFilterBooks()
+  
   return (
     <Card>
       <Row>
@@ -16,7 +18,7 @@ function FilterBooks(prop : FilterBooksProps) {
 
         <Col size={3}>
           <div className="btn-clear-wrapper">
-            <button className="btn btn-clear">Clean</button>
+            <button className="btn btn-clear" onClick={prop.handleClear}>Clean</button>
           </div>
         </Col>
       </Row>
