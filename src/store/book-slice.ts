@@ -80,6 +80,7 @@ const booksSlice = createSlice({
     setCurrentBookModal: (state, action: PayloadAction<Book>) => {
       state.currentBookModal = action.payload;
     },
+    
   },
 });
 

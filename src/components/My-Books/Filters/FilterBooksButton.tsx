@@ -1,10 +1,51 @@
 import { FilterBooksButtonProps } from './hooks/interfaces';
-function FilterBooksButton({ filterButton }: FilterBooksButtonProps) {
+import { Col, Row } from '../../Grid/Grid';
+import { FilterBooksProps } from './hooks/interfaces';
+function FilterBooksButton(prop: FilterBooksProps) {
+  const {filters, onBookNameChange, onAuthorChange, onPurchaseDateChange, onPriceChange} = prop
   return (
-    <div className="btn-wrapper-center">
-      {/*<button className="btn btn-filter">{filterButton.name}</button>*/}
-      <input type="text" placeholder={filterButton.name} />
-    </div>
+    <Row>
+        <Col size={3}>
+          <div className="btn-wrapper-center">
+            <input
+              type="text"
+              placeholder="Book_name"
+              value={filters.bookName}
+              onChange={onBookNameChange}
+            />
+          </div>
+        </Col>
+        <Col size={3}>
+          <div className="btn-wrapper-center">
+            <input
+              type="text"
+              placeholder="name_author"
+              value={filters.author}
+              onChange={onAuthorChange}
+            />
+          </div>
+        </Col>
+        <Col size={3}>
+          <div className="btn-wrapper-center">
+            <input
+              type="text"
+              placeholder="Purchase_date"
+              value={filters.purchaseDate}
+              onChange={onPurchaseDateChange}
+            />
+          </div>
+        </Col>
+        <Col size={3}>
+          <div className="btn-wrapper-center">
+            <input
+              type="text"
+              placeholder="Price"
+              value={filters.price}
+              onChange={onPriceChange}
+            />
+          </div>
+        </Col>
+      </Row>
   );
 }
 

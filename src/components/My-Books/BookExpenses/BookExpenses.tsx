@@ -9,9 +9,11 @@ import './BookExpenses.css';
 import Dropdown from './DropDown/Dropdown';
 import EditBook from './EditBook/EditBook';
 import { formatDate } from '../../../assets/formatDate';
+import Book from '../../../models/book-model';
+interface BookExpensesProp{booksArr: Book[]}
 
-function BookExpenses() {
-  const booksArr = useSelector((state: RootState) => state.book.books);
+function BookExpenses({booksArr}: BookExpensesProp ) {
+  //const booksArr = useSelector((state: RootState) => state.book.books);
   const { dropdownStates, toggleDropdown, toggleModal, isModalOpen } =
     useBookExpenses(booksArr.map(() => false));
 

@@ -3,9 +3,10 @@ import Card from '../../Cards/Card';
 import { Col, Row } from '../../Grid/Grid';
 import useFilterBooks from './hooks/useFilterBooks';
 import FilterBooksButton from './FilterBooksButton';
+import { FilterBooksProps } from './hooks/interfaces';
 
-function FilterBooks() {
-  const { filterButtons } = useFilterBooks();
+function FilterBooks(prop : FilterBooksProps) {
+  //const { filterButtons } = useFilterBooks();
   return (
     <Card>
       <Row>
@@ -21,13 +22,12 @@ function FilterBooks() {
         </Col>
       </Row>
       <br />
-      <Row>
-        {filterButtons.map((filterButton) => (
-          <Col size={3} key={filterButton.name}>
-            <FilterBooksButton filterButton={filterButton} />
-          </Col>
-        ))}
-      </Row>
+        <FilterBooksButton filters={prop.filters}
+          onBookNameChange={prop.onBookNameChange}
+          onAuthorChange={prop.onAuthorChange}
+          onPurchaseDateChange={prop.onPurchaseDateChange}
+          onPriceChange={prop.onPriceChange}
+          />
     </Card>
   );
 }
