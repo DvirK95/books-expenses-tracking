@@ -22,3 +22,26 @@
   font-size: 25px;
   padding: 1rem 2rem;
 }
+
+.filter-input {
+  background-color: var(--color-third);
+  text-align: center;
+  font-size: 25px;
+  border: none;
+
+  padding: 1rem 0;
+  border-radius: 8px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.filter-input:focus,
+.filter-input:focus {
+  background-color: white;
+  border: none;
+  outline: none;
+}
+
+.filter-input::placeholder{
+  font-weight: 700;
+}

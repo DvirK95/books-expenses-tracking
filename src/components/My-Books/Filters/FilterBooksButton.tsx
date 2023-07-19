@@ -8,6 +8,7 @@ function FilterBooksButton(prop: FilterBooksProps) {
         <Col size={3}>
           <div className="btn-wrapper-center">
             <input
+              className='filter-input'
               type="text"
               placeholder="Book_name"
               value={filters.bookName}
@@ -18,6 +19,7 @@ function FilterBooksButton(prop: FilterBooksProps) {
         <Col size={3}>
           <div className="btn-wrapper-center">
             <input
+              className='filter-input'
               type="text"
               placeholder="name_author"
               value={filters.author}
@@ -28,6 +30,7 @@ function FilterBooksButton(prop: FilterBooksProps) {
         <Col size={3}>
           <div className="btn-wrapper-center">
             <input
+              className='filter-input'
               type="text"
               placeholder="Purchase_date"
               value={filters.purchaseDate}
@@ -38,6 +41,7 @@ function FilterBooksButton(prop: FilterBooksProps) {
         <Col size={3}>
           <div className="btn-wrapper-center">
             <input
+              className='filter-input'
               type="text"
               placeholder="Price"
               value={filters.price}
