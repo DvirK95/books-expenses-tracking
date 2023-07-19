@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import Book from '../../models/book-model';
+import  { useEffect } from 'react';
 import FilterBooks from '../../components/My-Books/Filters/FilterBooks';
 import BookExpenses from '../../components/My-Books/BookExpenses/BookExpenses';
 import { Container } from '../../components/Grid/Grid';
+import useMyBooks from './useMyBooks';
 
 function MyBooks() {
-  const allBooks = useSelector((state: RootState) => state.book.books);
-  const [filters, setFilters] = useState({
-    bookName: '',
-    author: '',
-    purchaseDate: '',
-    price: '',
-  });
-  const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
+  const {allBooks, filters, setFilters, filteredBooks, setFilteredBooks} = useMyBooks()
 
   useEffect(() => {
     const filtered = allBooks.filter((book) => {

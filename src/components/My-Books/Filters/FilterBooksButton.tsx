@@ -1,4 +1,3 @@
-import { FilterBooksButtonProps } from './hooks/interfaces';
 import { Col, Row } from '../../Grid/Grid';
 import { FilterBooksProps } from './hooks/interfaces';
 function FilterBooksButton(prop: FilterBooksProps) {
