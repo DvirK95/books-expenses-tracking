@@ -17,31 +17,40 @@
   padding: 0.5rem 2rem;
 }
 
-.btn-filter {
+/*.btn-filter {
   background-color: var(--color-third);
   font-size: 25px;
   padding: 1rem 2rem;
-}
+}*/
 
 .filter-input {
+  width: 80%;
+  max-width: 100%;
   background-color: var(--color-third);
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   border: none;
-
   padding: 1rem 0;
   border-radius: 8px;
-  font-weight: 400;
+  font-weight: 700;
   margin: 0;
 }
 
 .filter-input:focus,
-.filter-input:focus {
+.filter-input:active {
   background-color: white;
   border: none;
   outline: none;
 }
 
-.filter-input::placeholder{
-  font-weight: 700;
+@media screen and (max-width: 1200px) {
+  .filter-input, .btn-clear{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .filter-input, .btn-clear{
+    font-size: 10px;
+  }
 }
