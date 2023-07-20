@@ -34,14 +34,14 @@ function MyBooks() {
         book.price.toString().includes(filters.price)
       );
     });
-    setFilteredBooks(filtered);
+    setFilteredBooks(()=> filtered);
   }, [
-    allBooks,
     filters.bookName,
     filters.author,
     filters.purchaseDate,
     filters.price,
-    setFilteredBooks,
+    allBooks,
+    // setFilteredBooks
   ]);
 
   useEffect(() => {

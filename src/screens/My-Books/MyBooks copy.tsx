@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import FilterBooks from '../../components/My-Books/Filters/FilterBooks';
+/*import FilterBooks from '../../components/My-Books/Filters/FilterBooks';
 import BookExpenses from '../../components/My-Books/BookExpenses/BookExpenses';
 import { Container } from '../../components/Grid/Grid';
 import useMyBooks from './useMyBooks';
@@ -75,3 +75,4 @@ function MyBooks() {
 }
 
 export default MyBooks;
+*/
