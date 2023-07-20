@@ -67,7 +67,6 @@ const booksSlice = createSlice({
       state.books.push(book);
     },
     updateBook: (state, action: PayloadAction<Book>) => {
-      console.log(action.payload);
       const index = state.books.findIndex(
         (book) => book.id === action.payload.id
       );
