@@ -15,7 +15,8 @@ function MyBooks() {
     setFilteredBooks,
     handleClear,
   } = useMyBooks();
-
+  console.log("compo", allBooks)
+  
   // State to hold the grouped books
   const [groupedBooks, setGroupedBooks] = useState<{ [key: string]: Book[] }>(
     {}
@@ -41,7 +42,7 @@ function MyBooks() {
     filters.purchaseDate,
     filters.price,
     allBooks,
-    // setFilteredBooks
+    setFilteredBooks
   ]);
 
   useEffect(() => {
@@ -55,6 +56,7 @@ function MyBooks() {
       groupedBooks[dateKey].push(book);
     });
     setGroupedBooks(groupedBooks);
+    console.log(groupedBooks)
   }, [filteredBooks]);
 
   return (

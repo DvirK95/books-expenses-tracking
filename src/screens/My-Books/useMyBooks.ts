@@ -5,23 +5,14 @@ import Book from '../../models/book-model';
 
 function useMyBooks() {
   let allBooks = useSelector((state: RootState) => state.book.books);
-  
-  // const sortedBooks = [...allBooks].sort(
-  //   (a, b) => b.purchaseDate.getTime() - a.purchaseDate.getTime()
-  // );
+  const [sortedBooks, setSortedBooks] = useState<Book[]>([]);
 
- const sortedBooks = () =>{
-  allBooks.sort((book1, book2) => Number(book2.purchaseDate) - Number(book1.purchaseDate))
-  }
+useEffect(() => {
+  const sorted = [...allBooks];
+  sorted.sort((a, b) => b.purchaseDate.getTime() - a.purchaseDate.getTime())
+  setSortedBooks(sorted);
 
-  //const sortedBooks = arr1.sort(
-  //(objA, objB) => Number(objA.date) - Number(objB.date),
-//);
-
-  useEffect(()=>{
-    sortedBooks()
-  },[])
-
+}, [allBooks]);
 
   const cleanFilter = {
     bookName: '',
@@ -34,23 +25,17 @@ function useMyBooks() {
   
 
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
-
-  const handleFilter = (filterBooks: Book[]) => {
-    setFilteredBooks(filterBooks);
-  };
-
   const handleClear = () => {
     setFilters(cleanFilter);
   };
 
   return {
-    allBooks,
+    allBooks: sortedBooks,
     filters,
     setFilters,
     filteredBooks,
     setFilteredBooks,
     handleClear,
-    handleFilter
   };
 }
 

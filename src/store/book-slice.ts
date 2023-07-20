@@ -10,19 +10,20 @@ export interface BooksState {
 }
 const initialState: BooksState = {
   books: [
+    
     {
       id: 1,
-      name: 'The Magician',
-      author: 'Eyal Berkovich',
-      purchaseDate: new Date('2023-07-10'),
-      price: 99.9,
+      name: 'Offside Trap',
+      author: 'Dean David',
+      purchaseDate: new Date('2023-07-11'),
+      price: 50,
     },
     {
       id: 2,
-      name: 'Offside Trap',
-      author: 'Dean David',
-      purchaseDate: new Date('2023-07-12'),
-      price: 50,
+      name: 'The Magician',
+      author: 'Eyal Berkovich',
+      purchaseDate: new Date('2023-07-11'),
+      price: 99.9,
     },
     {
       id: 3,
