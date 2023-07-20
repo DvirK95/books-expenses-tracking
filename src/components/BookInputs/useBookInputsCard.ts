@@ -12,18 +12,17 @@ export interface BookInputsCardProp {
 }
 
 export function useInputsCard({
-  close,
   edit,
   toggleModal,
 }: BookInputsCardProp) {
   const book = useSelector((state: RootState) => state.book.currentBookModal);
-
+  
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [bookName, setBookName] = useState<string>(
-    edit && book ? book.name : 'Book_name'
+    edit && book ? book.name : ''
   );
   const [author, setAuthor] = useState<string>(
-    edit && book ? book.author : 'Book_author'
+    edit && book ? book.author : ''
   );
   const [purchaseDate, setPurchaseDate] = useState<Date | null>(
     edit && book ? book.purchaseDate : new Date()
@@ -78,9 +77,11 @@ export function useInputsCard({
       purchaseDate: purchaseDate,
       price: parsedPrice,
     };
-    //  edit or update
+    //  edit or add
     if (edit) {
       dispatch(updateBook(updatedBookObj));
+      toggleModal && toggleModal();
+
     } else {
       dispatch(addBook(updatedBookObj));
       setAlertScreen({
@@ -88,7 +89,10 @@ export function useInputsCard({
         alertType: 'success',
         alertMessage: `${bookName} successfully added`,
       });
-      toggleModal && toggleModal();
+      setBookName("")
+      setAuthor("")
+      setPurchaseDate(new Date())
+      setPrice('')
     }
   };
 

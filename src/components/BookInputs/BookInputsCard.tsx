@@ -5,7 +5,7 @@ import { BookInputsCardProp } from './useBookInputsCard';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function BookInputsCard({ close, edit, toggleModal }: BookInputsCardProp) {
+function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
   const {
     isClicked,
     handleClickDate,
@@ -28,17 +28,17 @@ function BookInputsCard({ close, edit, toggleModal }: BookInputsCardProp) {
         type="text"
         id="name"
         name="name"
-        placeholder={bookName}
-        value={edit ? bookName : undefined}
+        placeholder='Book_name'
+        value={bookName}
         onChange={(e) => setBookName(e.target.value)}
       />
       <input
         className="book-inputs-field"
         type="text"
-        placeholder={author}
+        placeholder='Book_author'
         id="author"
         name="author"
-        value={edit ? author : undefined}
+        value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
       <button className="book-inputs-field" onClick={handleClickDate}>
