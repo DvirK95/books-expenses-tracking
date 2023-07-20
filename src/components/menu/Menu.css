@@ -1,6 +1,6 @@
 .sidebar {
-  position: fixed;
-  width: 28%;
+  position: absolute;
+  width: 20rem;
   height: 100%;
   background-color: var(--color-third);
   z-index: 1;
@@ -39,9 +39,9 @@
 }
 
 .btn-wrapper {
-  position: fixed;
-  bottom: 4%;
-  width: 28%;
+  position:absolute;
+  bottom: 10rem;
+  width: 100%;
   text-align: center;
 }
 

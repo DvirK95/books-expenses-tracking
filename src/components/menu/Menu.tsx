@@ -20,12 +20,13 @@ function Menu() {
               <NavLink to="/expenses">Expenses</NavLink>
             </li>
           </ul>
-        </nav>
-        <div className="btn-wrapper">
+          <div className="btn-wrapper">
           <button onClick={handleClick} className="btn btn-logout">
             Logout
           </button>
         </div>
+        </nav>
+        
       </aside>
     );
   }
