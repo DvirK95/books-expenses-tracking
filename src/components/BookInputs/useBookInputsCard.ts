@@ -11,7 +11,11 @@ export interface BookInputsCardProp {
   toggleModal?: () => void;
 }
 
-export function useInputsCard({ close, edit, toggleModal }: BookInputsCardProp) {
+export function useInputsCard({
+  close,
+  edit,
+  toggleModal,
+}: BookInputsCardProp) {
   const book = useSelector((state: RootState) => state.book.currentBookModal);
 
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -28,6 +32,18 @@ export function useInputsCard({ close, edit, toggleModal }: BookInputsCardProp) 
   const [price, setPrice] = useState<string>(
     edit && book ? String(book.price) : ''
   );
+
+  interface alertScreenType {
+    isAlert: boolean;
+    alertType: string;
+    alertMessage: string;
+  }
+  const [alertScreen, setAlertScreen] = useState<alertScreenType>({
+    isAlert: false,
+    alertType: 'error',
+    alertMessage: '',
+  });
+
   const dispatch: AppDispatch = useDispatch();
 
   const handleClickDate = () => {
@@ -36,15 +52,23 @@ export function useInputsCard({ close, edit, toggleModal }: BookInputsCardProp) 
 
   const handleSave = () => {
     if (!bookName || !author || !purchaseDate || !price) {
-      alert('Please fill in all fields.');
-
+      //alert('Please fill in all fields.');
+      setAlertScreen({
+        isAlert: true,
+        alertType: 'error',
+        alertMessage: 'Please fill in all fields.',
+      });
       return;
     }
 
     // Check if price is a valid number
     const parsedPrice = parseFloat(price);
     if (isNaN(parsedPrice)) {
-      alert('Please enter a valid price.');
+      setAlertScreen({
+        isAlert: true,
+        alertType: 'error',
+        alertMessage: 'Please enter a valid price.',
+      });
       return;
     }
     const updatedBookObj: Book = {
@@ -59,9 +83,12 @@ export function useInputsCard({ close, edit, toggleModal }: BookInputsCardProp) 
       dispatch(updateBook(updatedBookObj));
     } else {
       dispatch(addBook(updatedBookObj));
-      alert(`${bookName} successfully added`);
-      toggleModal && toggleModal()
-
+      setAlertScreen({
+        isAlert: true,
+        alertType: 'success',
+        alertMessage: `${bookName} successfully added`,
+      });
+      toggleModal && toggleModal();
     }
   };
 
@@ -77,5 +104,6 @@ export function useInputsCard({ close, edit, toggleModal }: BookInputsCardProp) 
     price,
     setPrice,
     handleSave,
+    alertScreen,
   };
 }

@@ -21,7 +21,7 @@ const initialState: BooksState = {
       id: 2,
       name: 'Offside Trap',
       author: 'Dean David',
-      purchaseDate: new Date('2023-07-11'),
+      purchaseDate: new Date('2023-07-12'),
       price: 50,
     },
     {
@@ -31,7 +31,6 @@ const initialState: BooksState = {
       purchaseDate: new Date('2023-07-12'),
       price: 44.9,
     },
-    
   ],
   totalPrice: 194.8,
   currentBookModal: {
@@ -81,7 +80,6 @@ const booksSlice = createSlice({
     setCurrentBookModal: (state, action: PayloadAction<Book>) => {
       state.currentBookModal = action.payload;
     },
-    
   },
 });
 

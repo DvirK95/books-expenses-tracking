@@ -3,8 +3,6 @@ import FilterBooks from '../../components/My-Books/Filters/FilterBooks';
 import BookExpenses from '../../components/My-Books/BookExpenses/BookExpenses';
 import { Container } from '../../components/Grid/Grid';
 import useMyBooks from './useMyBooks';
-import Book from '../../models/book-model';
-import { useState } from 'react';
 
 function MyBooks() {
   const {
@@ -16,14 +14,8 @@ function MyBooks() {
     handleClear,
   } = useMyBooks();
 
-  // State to hold the grouped books
-  const [groupedBooks, setGroupedBooks] = useState<{ [key: string]: Book[] }>(
-    {}
-  );
-
   useEffect(() => {
-    // Filtering books
-    const filtered = allBooks.filter((book: Book) => {
+    const filtered = allBooks.filter((book) => {
       return (
         book.name.toLowerCase().includes(filters.bookName.toLowerCase()) &&
         book.author.toLowerCase().includes(filters.author.toLowerCase()) &&
@@ -43,19 +35,6 @@ function MyBooks() {
     filters.price,
     setFilteredBooks,
   ]);
-
-  useEffect(() => {
-    // Grouping books by purchaseDate
-    const groupedBooks: { [key: string]: Book[] } = {};
-    filteredBooks.forEach((book: Book) => {
-      const dateKey = book.purchaseDate.toISOString().slice(0, 10);
-      if (!groupedBooks[dateKey]) {
-        groupedBooks[dateKey] = [];
-      }
-      groupedBooks[dateKey].push(book);
-    });
-    setGroupedBooks(groupedBooks);
-  }, [filteredBooks]);
 
   return (
     <>
@@ -90,9 +69,7 @@ function MyBooks() {
           handleClear={handleClear}
         />
       </Container>
-      {Object.keys(groupedBooks).map((dateKey: string, index: number) => (
-        <BookExpenses key={index} booksArr={groupedBooks[dateKey]} />
-      ))}
+      <BookExpenses booksArr={filteredBooks} />
     </>
   );
 }

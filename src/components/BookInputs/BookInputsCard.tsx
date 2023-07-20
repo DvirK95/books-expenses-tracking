@@ -1,3 +1,4 @@
+import Alert from '../alert/Alert';
 import './BookInputsCard.css';
 import { useInputsCard } from './useBookInputsCard';
 import { BookInputsCardProp } from './useBookInputsCard';
@@ -17,6 +18,7 @@ function BookInputsCard({ close, edit, toggleModal }: BookInputsCardProp) {
     setPrice,
     handleSave,
     setPurchaseDate,
+    alertScreen,
   } = useInputsCard({ edit, toggleModal });
 
   return (
@@ -67,6 +69,11 @@ function BookInputsCard({ close, edit, toggleModal }: BookInputsCardProp) {
           Save
         </button>
       </div>
+      {alertScreen.isAlert && (
+        <Alert type={alertScreen.alertType}>
+          <p>{alertScreen.alertMessage}</p>
+        </Alert>
+      )}
     </>
   );
 }

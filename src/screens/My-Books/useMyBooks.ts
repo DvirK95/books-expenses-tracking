@@ -6,7 +6,9 @@ import Book from '../../models/book-model';
 function useMyBooks() {
   let allBooks = useSelector((state: RootState) => state.book.books);
 
-  const sortedBooks = [...allBooks].sort((a, b) => b.purchaseDate.getTime() - a.purchaseDate.getTime());
+  const sortedBooks = [...allBooks].sort(
+    (a, b) => b.purchaseDate.getTime() - a.purchaseDate.getTime()
+  );
 
   const cleanFilter = {
     bookName: '',
