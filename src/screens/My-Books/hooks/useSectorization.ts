@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import Book from '../../models/book-model';
+import { RootState } from '../../../store/store';
+import Book from '../../../models/book-model';
 
-function useMyBooks() {
+function useSectorization() {
   let allBooks = useSelector((state: RootState) => state.book.books);
   const [sortedBooks, setSortedBooks] = useState<Book[]>([]);
 
@@ -18,27 +18,15 @@ function useMyBooks() {
     setSortedBooks(sorted);
   }, [allBooks]);
 
-  const cleanFilter = {
-    bookName: '',
-    author: '',
-    purchaseDate: '',
-    price: '',
-  };
-  const [filters, setFilters] = useState(cleanFilter);
-
-  const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
-  const handleClear = () => {
-    setFilters(cleanFilter);
-  };
+  const [groupedBooks, setGroupedBooks] = useState<{ [key: string]: Book[] }>(
+    {}
+  );
 
   return {
     allBooks: sortedBooks,
-    filters,
-    setFilters,
-    filteredBooks,
-    setFilteredBooks,
-    handleClear,
+    groupedBooks,
+    setGroupedBooks,
   };
 }
 
-export default useMyBooks;
+export default useSectorization;

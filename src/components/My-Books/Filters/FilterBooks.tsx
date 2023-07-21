@@ -1,11 +1,10 @@
 import './FilterBooks.css';
 import Card from '../../Cards/Card';
 import { Col, Row } from '../../Grid/Grid';
-import FilterBooksButton from './FilterBooksButton';
+import FilterBooksFields from './FilterBooksFields';
 import { FilterBooksProps } from './hooks/interfaces';
 
-function FilterBooks(prop : FilterBooksProps ) {
-  
+function FilterBooks(prop: FilterBooksProps) {
   return (
     <Card>
       <Row>
@@ -16,17 +15,20 @@ function FilterBooks(prop : FilterBooksProps ) {
 
         <Col size={3}>
           <div className="btn-clear-wrapper">
-            <button className="btn btn-clear" onClick={prop.handleClear}>Clean</button>
+            <button className="btn btn-clear" onClick={prop.handleClear}>
+              Clean
+            </button>
           </div>
         </Col>
       </Row>
       <br />
-        <FilterBooksButton filters={prop.filters}
-          onBookNameChange={prop.onBookNameChange}
-          onAuthorChange={prop.onAuthorChange}
-          onPurchaseDateChange={prop.onPurchaseDateChange}
-          onPriceChange={prop.onPriceChange}
-          />
+      <FilterBooksFields
+        filters={prop.filters}
+        onBookNameChange={prop.onBookNameChange}
+        onAuthorChange={prop.onAuthorChange}
+        onPurchaseDateChange={prop.onPurchaseDateChange}
+        onPriceChange={prop.onPriceChange}
+      />
     </Card>
   );
 }

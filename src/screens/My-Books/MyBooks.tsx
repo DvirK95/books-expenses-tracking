@@ -2,24 +2,22 @@ import { useEffect } from 'react';
 import FilterBooks from '../../components/My-Books/Filters/FilterBooks';
 import BookExpenses from '../../components/My-Books/BookExpenses/BookExpenses';
 import { Container } from '../../components/Grid/Grid';
-import useMyBooks from './useMyBooks';
+import useFilterization from './hooks/useFilterization';
 import Book from '../../models/book-model';
-import { useState } from 'react';
+import { isoStrToDateStr } from '../../assets/formatDate';
+import useSectorization from './hooks/useSectorization';
 
 function MyBooks() {
   const {
-    allBooks,
     filters,
     setFilters,
     filteredBooks,
     setFilteredBooks,
     handleClear,
-  } = useMyBooks();
+    onPurchaseDateChange,
+  } = useFilterization();
 
-  // State to hold the grouped books
-  const [groupedBooks, setGroupedBooks] = useState<{ [key: string]: Book[] }>(
-    {}
-  );
+  const { allBooks, groupedBooks, setGroupedBooks } = useSectorization();
 
   useEffect(() => {
     // Filtering books
@@ -27,11 +25,11 @@ function MyBooks() {
       return (
         book.name.toLowerCase().includes(filters.bookName.toLowerCase()) &&
         book.author.toLowerCase().includes(filters.author.toLowerCase()) &&
-        book.purchaseDate
-          .toString()
-          .toLowerCase()
-          .includes(filters.purchaseDate.toLowerCase()) &&
-        book.price.toString().includes(filters.price)
+        (!filters.purchaseDate
+          ? true
+          : isoStrToDateStr(book.purchaseDate) ===
+            isoStrToDateStr(filters.purchaseDate)) &&
+        (!filters.price ? true : ~~book.price === parseInt(filters.price))
       );
     });
     setFilteredBooks(() => filtered);
@@ -56,7 +54,7 @@ function MyBooks() {
       groupedBooks[dateKey].push(book);
     });
     setGroupedBooks(groupedBooks);
-  }, [filteredBooks]);
+  }, [filteredBooks, setGroupedBooks]);
 
   return (
     <>
@@ -76,12 +74,7 @@ function MyBooks() {
               author: event.target.value,
             }))
           }
-          onPurchaseDateChange={(event) =>
-            setFilters((prevFilters) => ({
-              ...prevFilters,
-              purchaseDate: event.target.value,
-            }))
-          }
+          onPurchaseDateChange={onPurchaseDateChange}
           onPriceChange={(event) =>
             setFilters((prevFilters) => ({
               ...prevFilters,
