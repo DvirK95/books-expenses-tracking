@@ -18,7 +18,7 @@ function useFilterization() {
   const onPurchaseDateChange = (date: Date) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
-      purchaseDate: date.toISOString(),
+      purchaseDate: date ? date.toISOString() : '',
     }));
   };
 

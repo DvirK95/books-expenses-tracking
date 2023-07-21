@@ -9,7 +9,7 @@ function useSectorization() {
 
   useEffect(() => {
     const sorted = [...allBooks];
-    // convert to iso to number and sort
+    // iso => number => sort
     sorted.sort(
       (book1, book2) =>
         new Date(book2.purchaseDate).getTime() -

@@ -2,7 +2,7 @@ import './FilterBooks.css';
 import Card from '../../Cards/Card';
 import { Col, Row } from '../../Grid/Grid';
 import FilterBooksFields from './FilterBooksFields';
-import { FilterBooksProps } from './hooks/interfaces';
+import { FilterBooksProps } from './FilterBooksinterfaces';
 
 function FilterBooks(prop: FilterBooksProps) {
   return (

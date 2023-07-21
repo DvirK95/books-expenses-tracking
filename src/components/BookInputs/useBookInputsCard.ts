@@ -32,10 +32,7 @@ export function useInputsCard({ edit, toggleModal }: BookInputsCardProp) {
   const dispatch: AppDispatch = useDispatch();
 
   const onChangeHandler = (date: Date) => {
-    if (date === null || date === undefined) {
-      setPurchaseDate('');
-    }
-    setPurchaseDate(date.toISOString());
+    if (date) setPurchaseDate(date.toISOString());
   };
 
   const handleSave = () => {

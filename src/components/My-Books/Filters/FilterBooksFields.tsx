@@ -1,6 +1,6 @@
 import { isoStrToDateStr } from '../../../assets/formatDate';
 import { Col, Row } from '../../Grid/Grid';
-import { FilterBooksProps } from './hooks/interfaces';
+import { FilterBooksProps } from './FilterBooksinterfaces';
 import DatePicker from 'react-datepicker';
 
 function FilterBooksFields(prop: FilterBooksProps) {
