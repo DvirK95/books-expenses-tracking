@@ -1,5 +1,5 @@
 import { isoStrToDateStr } from '../../assets/formatDate';
-import Alert from '../alert/Alert';
+import Alert from '../Alert/Alert';
 import './BookInputsCard.css';
 import { useInputsCard } from './useBookInputsCard';
 import { BookInputsCardProp } from './useBookInputsCard';
