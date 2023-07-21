@@ -6,26 +6,20 @@ import { AppDispatch, RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 
 export interface BookInputsCardProp {
-  close?: () => void;
   edit: boolean;
   toggleModal?: () => void;
 }
 
-export function useInputsCard({
-  edit,
-  toggleModal,
-}: BookInputsCardProp) {
+export function useInputsCard({ edit, toggleModal }: BookInputsCardProp) {
   const book = useSelector((state: RootState) => state.book.currentBookModal);
-  
-  const [isClicked, setIsClicked] = useState<boolean>(false);
+
   const [bookName, setBookName] = useState<string>(
     edit && book ? book.name : ''
   );
-  const [author, setAuthor] = useState<string>(
-    edit && book ? book.author : ''
-  );
-  const [purchaseDate, setPurchaseDate] = useState<Date | null>(
-    edit && book ? book.purchaseDate : new Date()
+  const [author, setAuthor] = useState<string>(edit && book ? book.author : '');
+
+  const [purchaseDate, setPurchaseDate] = useState<string>(
+    edit && book ? book.purchaseDate : ''
   );
 
   const [price, setPrice] = useState<string>(
@@ -37,6 +31,7 @@ export function useInputsCard({
     alertType: string;
     alertMessage: string;
   }
+
   const [alertScreen, setAlertScreen] = useState<alertScreenType>({
     isAlert: false,
     alertType: 'error',
@@ -45,13 +40,15 @@ export function useInputsCard({
 
   const dispatch: AppDispatch = useDispatch();
 
-  const handleClickDate = () => {
-    setIsClicked(true);
+  const onChangeHandler = (date: Date) => {
+    if (date === null || date === undefined) {
+      setPurchaseDate('');
+    }
+    setPurchaseDate(date.toISOString());
   };
 
   const handleSave = () => {
     if (!bookName || !author || !purchaseDate || !price) {
-      //alert('Please fill in all fields.');
       setAlertScreen({
         isAlert: true,
         alertType: 'error',
@@ -81,7 +78,6 @@ export function useInputsCard({
     if (edit) {
       dispatch(updateBook(updatedBookObj));
       toggleModal && toggleModal();
-
     } else {
       dispatch(addBook(updatedBookObj));
       setAlertScreen({
@@ -89,25 +85,23 @@ export function useInputsCard({
         alertType: 'success',
         alertMessage: `${bookName} successfully added`,
       });
-      setBookName("")
-      setAuthor("")
-      setPurchaseDate(new Date())
-      setPrice('')
+      setBookName('');
+      setAuthor('');
+      setPurchaseDate('');
+      setPrice('');
     }
   };
 
   return {
-    isClicked,
-    handleClickDate,
     bookName,
     setBookName,
     author,
     setAuthor,
     purchaseDate,
-    setPurchaseDate,
     price,
     setPrice,
     handleSave,
     alertScreen,
+    onChangeHandler,
   };
 }

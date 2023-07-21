@@ -7,12 +7,16 @@ function useMyBooks() {
   let allBooks = useSelector((state: RootState) => state.book.books);
   const [sortedBooks, setSortedBooks] = useState<Book[]>([]);
 
-useEffect(() => {
-  const sorted = [...allBooks];
-  sorted.sort((a, b) => b.purchaseDate.getTime() - a.purchaseDate.getTime())
-  setSortedBooks(sorted);
-
-}, [allBooks]);
+  useEffect(() => {
+    const sorted = [...allBooks];
+    // convert to iso to number and sort
+    sorted.sort(
+      (book1, book2) =>
+        new Date(book2.purchaseDate).getTime() -
+        new Date(book1.purchaseDate).getTime()
+    );
+    setSortedBooks(sorted);
+  }, [allBooks]);
 
   const cleanFilter = {
     bookName: '',
@@ -21,8 +25,6 @@ useEffect(() => {
     price: '',
   };
   const [filters, setFilters] = useState(cleanFilter);
-
-  
 
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
   const handleClear = () => {

@@ -1,3 +1,4 @@
+import { isoStrToDateStr } from '../../assets/formatDate';
 import Alert from '../alert/Alert';
 import './BookInputsCard.css';
 import { useInputsCard } from './useBookInputsCard';
@@ -7,8 +8,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
   const {
-    isClicked,
-    handleClickDate,
     bookName,
     setBookName,
     author,
@@ -17,8 +16,8 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
     price,
     setPrice,
     handleSave,
-    setPurchaseDate,
     alertScreen,
+    onChangeHandler,
   } = useInputsCard({ edit, toggleModal });
 
   return (
@@ -28,20 +27,20 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
         type="text"
         id="name"
         name="name"
-        placeholder='Book_name'
+        placeholder="Book_name"
         value={bookName}
         onChange={(e) => setBookName(e.target.value)}
       />
       <input
         className="book-inputs-field"
         type="text"
-        placeholder='Book_author'
+        placeholder="Book_author"
         id="author"
         name="author"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
-      <button className="book-inputs-field" onClick={handleClickDate}>
+      {/*<button className="book-inputs-field" onClick={handleClickDate}>
         {isClicked || edit ? (
           <DatePicker
             className="date-input"
@@ -55,6 +54,17 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
           <>Purchase_Date</>
         )}
       </button>
+      */}
+      <DatePicker
+        placeholderText="Purchase_date"
+        className={`book-inputs-field ${edit ? 'book-inputs-field-edit' : ''}`}
+        selected={edit ? new Date(purchaseDate) : new Date()}
+        value={isoStrToDateStr(purchaseDate)}
+        onChange={onChangeHandler}
+        minDate={new Date('2000-01-01')}
+        maxDate={new Date()}
+        dateFormat="dd/MM/yyyy"
+      />
       <input
         className="book-inputs-field"
         placeholder="price"

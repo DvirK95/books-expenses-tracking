@@ -30,18 +30,10 @@
   outline: none;
 }
 
-.date-input,
-.date-input:focus,
-.date-input:active {
-  background-color: transparent !important;
-  border: none;
-  outline: none !important;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: large;
+.react-datepicker__input-container .book-inputs-field {
+  width: 575px;
 }
-button.book-inputs-field,
-.book-inputs-field::placeholder {
-  color: gray;
+
+.book-inputs-field-edit {
+  width: 656px !important;
 }

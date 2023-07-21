@@ -10,37 +10,30 @@ export interface BooksState {
 }
 const initialState: BooksState = {
   books: [
-    
     {
       id: 1,
       name: 'Offside Trap',
       author: 'Dean David',
-      purchaseDate: new Date('2023-07-11'),
+      purchaseDate: new Date('2023-07-11').toISOString(),
       price: 50,
     },
     {
       id: 2,
       name: 'The Magician',
       author: 'Eyal Berkovich',
-      purchaseDate: new Date('2023-07-11'),
+      purchaseDate: new Date('2023-07-11').toISOString(),
       price: 99.9,
     },
     {
       id: 3,
       name: 'Im Everywhere',
       author: 'Ali Mohamed',
-      purchaseDate: new Date('2023-07-12'),
+      purchaseDate: new Date('2023-07-12').toISOString(),
       price: 44.9,
     },
   ],
   totalPrice: 194.8,
-  currentBookModal: {
-    id: 3,
-    name: 'Im Everywhere',
-    author: 'Ali Mohamed',
-    purchaseDate: new Date('2023-07-12'),
-    price: 44.9,
-  },
+  currentBookModal: {} as Book,
   lastIndex: 3,
 };
 
@@ -48,12 +41,6 @@ const booksSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {
-    filterByName: (state, action: PayloadAction<string>) => {
-      const filterText = action.payload.trim().toLowerCase();
-      state.books = initialState.books.filter((book) =>
-        book.name.toLowerCase().includes(filterText)
-      );
-    },
     pullTotalPrice: (state) => {
       let totalPrice = 0;
       for (const book of state.books) {

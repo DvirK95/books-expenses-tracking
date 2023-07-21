@@ -15,7 +15,7 @@ function MyBooks() {
     setFilteredBooks,
     handleClear,
   } = useMyBooks();
-  
+
   // State to hold the grouped books
   const [groupedBooks, setGroupedBooks] = useState<{ [key: string]: Book[] }>(
     {}
@@ -34,21 +34,22 @@ function MyBooks() {
         book.price.toString().includes(filters.price)
       );
     });
-    setFilteredBooks(()=> filtered);
+    setFilteredBooks(() => filtered);
   }, [
     filters.bookName,
     filters.author,
     filters.purchaseDate,
     filters.price,
     allBooks,
-    setFilteredBooks
+    setFilteredBooks,
   ]);
 
   useEffect(() => {
     // Grouping books by purchaseDate
     const groupedBooks: { [key: string]: Book[] } = {};
     filteredBooks.forEach((book: Book) => {
-      const dateKey = book.purchaseDate.toISOString().slice(0, 10);
+      const dateKey = book.purchaseDate.slice(0, 10);
+      console.log(dateKey);
       if (!groupedBooks[dateKey]) {
         groupedBooks[dateKey] = [];
       }

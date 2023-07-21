@@ -6,7 +6,7 @@ import useBookExpenses from './useBookExpenses';
 import './BookExpenses.css';
 import Dropdown from './DropDown/Dropdown';
 import EditBook from './EditBook/EditBook';
-import { formatDate } from '../../../assets/formatDate';
+import { isoStrToDateStr } from '../../../assets/formatDate';
 import Book from '../../../models/book-model';
 
 interface BookExpensesProp {
@@ -21,6 +21,7 @@ function BookExpenses({ booksArr }: BookExpensesProp) {
     height: '2rem',
     width: '2rem',
   };
+
   return (
     <>
       <Card>
@@ -38,7 +39,7 @@ function BookExpenses({ booksArr }: BookExpensesProp) {
                   </Col>
                   <Col size={3}>
                     <div className="book-details">
-                      {formatDate(book.purchaseDate || '')}
+                      {isoStrToDateStr(book.purchaseDate)}
                     </div>
                   </Col>
                   <Col size={3}>
