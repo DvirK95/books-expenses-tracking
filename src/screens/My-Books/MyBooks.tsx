@@ -46,8 +46,7 @@ function MyBooks() {
     // Grouping books by purchaseDate
     const groupedBooks: { [key: string]: Book[] } = {};
     filteredBooks.forEach((book: Book) => {
-      const dateKey = book.purchaseDate.slice(0, 10);
-      console.log(dateKey);
+      const dateKey = isoStrToDateStr(book.purchaseDate);
       if (!groupedBooks[dateKey]) {
         groupedBooks[dateKey] = [];
       }
@@ -85,7 +84,11 @@ function MyBooks() {
         />
       </Container>
       {Object.keys(groupedBooks).map((dateKey: string, index: number) => (
-        <BookExpenses key={index} booksArr={groupedBooks[dateKey]} />
+        <BookExpenses
+          key={index}
+          booksArr={groupedBooks[dateKey]}
+          purchaseDate={dateKey}
+        />
       ))}
     </>
   );

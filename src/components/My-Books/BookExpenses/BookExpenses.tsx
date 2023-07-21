@@ -11,9 +11,10 @@ import Book from '../../../models/book-model';
 
 interface BookExpensesProp {
   booksArr: Book[];
+  purchaseDate: string;
 }
 
-function BookExpenses({ booksArr }: BookExpensesProp) {
+function BookExpenses({ booksArr, purchaseDate }: BookExpensesProp) {
   const { dropdownStates, toggleDropdown, toggleModal, isModalOpen } =
     useBookExpenses(booksArr.map(() => false));
 
@@ -25,7 +26,7 @@ function BookExpenses({ booksArr }: BookExpensesProp) {
   return (
     <>
       <Card>
-        <div>Purchase Date</div>
+        <div>{purchaseDate}</div>
         {booksArr.map((book, index) => (
           <Card.Body key={book.id}>
             <Row>

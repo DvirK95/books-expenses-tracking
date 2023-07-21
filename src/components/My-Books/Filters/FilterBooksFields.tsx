@@ -37,15 +37,6 @@ function FilterBooksFields(prop: FilterBooksProps) {
       </Col>
       <Col size={3}>
         <div className="btn-wrapper-center">
-          {/*
-          <input
-            className="filter-input"
-            type="text"
-            placeholder="Purchase_date"
-            value={filters.purchaseDate}
-            onChange={onPurchaseDateChange}
-          />
-          */}
           <DatePicker
             className="filter-input"
             placeholderText="Purchase_date"
