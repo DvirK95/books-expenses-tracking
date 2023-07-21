@@ -41,3 +41,15 @@
 .book-inputs-field-edit {
   width: 656px !important;
 }
+
+/* Hide the number input's arrow buttons for Chrome, Safari, and Opera */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the number input's arrow buttons for Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
