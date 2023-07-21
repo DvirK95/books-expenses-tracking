@@ -6,7 +6,6 @@ export interface BooksState {
   books: Book[];
   totalPrice: number;
   currentBookModal?: Book;
-  lastIndex: number;
 }
 const initialState: BooksState = {
   books: [
@@ -34,7 +33,6 @@ const initialState: BooksState = {
   ],
   totalPrice: 194.8,
   currentBookModal: {} as Book,
-  lastIndex: 3,
 };
 
 const booksSlice = createSlice({
@@ -49,8 +47,10 @@ const booksSlice = createSlice({
       state.totalPrice = totalPrice;
     },
     addBook: (state, action: PayloadAction<Book>) => {
+      const length = state.books.length;
+      const lastIndex = state.books[length - 1].id;
       let book = action.payload;
-      book.id = state.lastIndex + 1;
+      book.id = lastIndex + 1;
       state.books.push(book);
     },
     updateBook: (state, action: PayloadAction<Book>) => {

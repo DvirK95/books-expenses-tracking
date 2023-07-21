@@ -40,21 +40,6 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
-      {/*<button className="book-inputs-field" onClick={handleClickDate}>
-        {isClicked || edit ? (
-          <DatePicker
-            className="date-input"
-            selected={purchaseDate}
-            onChange={(date) => setPurchaseDate(date)}
-            minDate={new Date('1900-12-31')}
-            maxDate={new Date()}
-            dateFormat="dd/MM/yyyy"
-          />
-        ) : (
-          <>Purchase_Date</>
-        )}
-      </button>
-      */}
       <DatePicker
         placeholderText="Purchase_date"
         className={`book-inputs-field ${edit ? 'book-inputs-field-edit' : ''}`}
