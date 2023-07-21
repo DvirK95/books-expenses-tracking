@@ -16,7 +16,9 @@
   font-size: 25px;
   padding: 0.5rem 2rem;
 }
-
+.btn-clear:hover {
+  background-color: #d36464b3;
+}
 .filter-input {
   width: 80%;
   max-width: 100%;

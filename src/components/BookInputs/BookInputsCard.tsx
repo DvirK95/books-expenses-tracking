@@ -16,7 +16,10 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
     price,
     setPrice,
     handleSave,
-    alertScreen,
+    setIsNotification,
+    isNotification,
+    alertMessage,
+    alertType,
     onChangeHandler,
   } = useInputsCard({ edit, toggleModal });
 
@@ -64,11 +67,13 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
           Save
         </button>
       </div>
-      {alertScreen.isAlert && (
-        <Alert type={alertScreen.alertType}>
-          <p>{alertScreen.alertMessage}</p>
-        </Alert>
-      )}
+      <Alert
+        type={alertType}
+        isShow={isNotification}
+        setIsShow={setIsNotification}
+      >
+        <p>{alertMessage}</p>
+      </Alert>
     </>
   );
 }

@@ -59,6 +59,6 @@ body {
 }
 
 .btn-opacity {
-  background-color: inherit;
-  border: none;
+  display: contents;
+  cursor: pointer;
 }

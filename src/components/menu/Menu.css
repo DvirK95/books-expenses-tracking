@@ -38,11 +38,17 @@
   border-radius: 10px;
 }
 
+.sidebar nav ul :hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(98, 163, 1);
+}
+
 .btn-wrapper {
-  position:absolute;
+  position: absolute;
   bottom: 10rem;
   width: 100%;
   text-align: center;
+  left: -2px;
 }
 
 .btn-logout {

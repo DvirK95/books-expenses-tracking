@@ -6,6 +6,10 @@
   font-size: 1.5rem;
 }
 
+.btn-save:hover {
+  background-color: #68ae6f;
+}
+
 .title-edit-book {
   text-align: center;
   font-weight: 700;

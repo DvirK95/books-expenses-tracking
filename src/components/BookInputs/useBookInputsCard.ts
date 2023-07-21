@@ -4,7 +4,6 @@ import { addBook, updateBook } from '../../store/book-actions';
 import Book from '../../models/book-model';
 import { AppDispatch, RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
-
 export interface BookInputsCardProp {
   edit: boolean;
   toggleModal?: () => void;
@@ -26,17 +25,9 @@ export function useInputsCard({ edit, toggleModal }: BookInputsCardProp) {
     edit && book ? String(book.price) : ''
   );
 
-  interface alertScreenType {
-    isAlert: boolean;
-    alertType: string;
-    alertMessage: string;
-  }
-
-  const [alertScreen, setAlertScreen] = useState<alertScreenType>({
-    isAlert: false,
-    alertType: 'error',
-    alertMessage: '',
-  });
+  const [isNotification, setIsNotification] = useState<boolean>(false);
+  const [alertType, setAlertType] = useState<string>('');
+  const [alertMessage, setAlertMessage] = useState<string>('');
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -48,25 +39,27 @@ export function useInputsCard({ edit, toggleModal }: BookInputsCardProp) {
   };
 
   const handleSave = () => {
+    // reset alert notification
+    setIsNotification(false);
+    setAlertType('');
+    setAlertMessage('');
+
     if (!bookName || !author || !purchaseDate || !price) {
-      setAlertScreen({
-        isAlert: true,
-        alertType: 'error',
-        alertMessage: 'Please fill in all fields.',
-      });
+      setIsNotification(true);
+      setAlertType('error');
+      setAlertMessage('Please fill in all fields.');
       return;
     }
 
     // Check if price is a valid number
     const parsedPrice = parseFloat(price);
     if (isNaN(parsedPrice)) {
-      setAlertScreen({
-        isAlert: true,
-        alertType: 'error',
-        alertMessage: 'Please enter a valid price.',
-      });
+      setIsNotification(true);
+      setAlertType('error');
+      setAlertMessage('Please enter a valid price.');
       return;
     }
+
     const updatedBookObj: Book = {
       id: book ? book.id : 0,
       name: bookName,
@@ -80,11 +73,12 @@ export function useInputsCard({ edit, toggleModal }: BookInputsCardProp) {
       toggleModal && toggleModal();
     } else {
       dispatch(addBook(updatedBookObj));
-      setAlertScreen({
-        isAlert: true,
-        alertType: 'success',
-        alertMessage: `${bookName} successfully added`,
-      });
+
+      setIsNotification(true);
+      setAlertType('success');
+      setAlertMessage(`${bookName} successfully added`);
+
+      // clean after submit
       setBookName('');
       setAuthor('');
       setPurchaseDate('');
@@ -101,7 +95,10 @@ export function useInputsCard({ edit, toggleModal }: BookInputsCardProp) {
     price,
     setPrice,
     handleSave,
-    alertScreen,
+    setIsNotification,
+    isNotification,
+    alertMessage,
+    alertType,
     onChangeHandler,
   };
 }

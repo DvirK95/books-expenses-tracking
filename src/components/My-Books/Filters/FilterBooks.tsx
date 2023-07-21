@@ -12,7 +12,6 @@ function FilterBooks(prop: FilterBooksProps) {
         <Col size={6}>
           <div className="filter-title">Filter books</div>
         </Col>
-
         <Col size={3}>
           <div className="btn-clear-wrapper">
             <button className="btn btn-clear" onClick={prop.handleClear}>

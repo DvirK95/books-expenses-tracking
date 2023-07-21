@@ -1,16 +1,13 @@
-import style from './style.module.css';
-import css from 'classnames';
-import React, { ReactNode, MouseEvent, useState } from 'react';
-
-type AlertProps = {
-  children?: ReactNode;
-  type: string;
-  message?: string;
-};
-
-export default function Alert({ children, type, message }: AlertProps) {
-  const [isShow, setIsShow] = useState(true);
-
+import './Alert.css';
+import React, { MouseEvent } from 'react';
+import { AlertProps } from './Interfaces';
+export default function Alert({
+  children,
+  type,
+  message,
+  isShow,
+  setIsShow,
+}: AlertProps) {
   const renderElAlert = function () {
     return React.cloneElement(children as React.ReactElement);
   };
@@ -21,8 +18,8 @@ export default function Alert({ children, type, message }: AlertProps) {
   };
 
   return (
-    <div className={css(style.alert, style[type], !isShow && style.hide)}>
-      <span className={style.closebtn} onClick={handleClose}>
+    <div className={`alert ${type}${!isShow ? ' hide' : ''}`}>
+      <span className="closebtn" onClick={handleClose}>
         &times;
       </span>
       {children ? renderElAlert() : message}

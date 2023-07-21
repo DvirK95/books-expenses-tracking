@@ -21,12 +21,11 @@ function Menu() {
             </li>
           </ul>
           <div className="btn-wrapper">
-          <button onClick={handleClick} className="btn btn-logout">
-            Logout
-          </button>
-        </div>
+            <button onClick={handleClick} className="btn btn-logout">
+              Logout
+            </button>
+          </div>
         </nav>
-        
       </aside>
     );
   }
