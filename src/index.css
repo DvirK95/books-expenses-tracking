@@ -62,3 +62,28 @@ body {
   display: contents;
   cursor: pointer;
 }
+
+input.login {
+  color: #222222;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+::placeholder {
+  color: #00000080;
+}
+
+input.login:focus,
+input.login:hover {
+  outline: none;
+  border: solid 1px #222222;
+}
+
+input.error {
+  border: solid 1px #f14668;
+}
+input.error::placeholder {
+  color: #f14668;
+}

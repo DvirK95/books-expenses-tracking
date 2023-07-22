@@ -9,6 +9,7 @@ export interface RowProps {
   children?: ReactNode;
   maxHeight?: string;
   className?: string;
+  margin?: string;
 }
 
 export interface ColProps {

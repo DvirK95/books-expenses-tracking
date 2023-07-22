@@ -14,11 +14,16 @@ const Container: React.FC<ContainerProps> = ({ children, width = '85%' }) => {
   );
 };
 
-const Row: React.FC<RowProps> = ({ children, maxHeight, className }) => {
+const Row: React.FC<RowProps> = ({
+  children,
+  maxHeight,
+  margin = '0.25rem 0',
+  className,
+}) => {
   const rowStyle: React.CSSProperties = {
     display: 'flex',
     flexWrap: 'wrap',
-    margin: '0.25rem 0',
+    margin,
     maxHeight: maxHeight || 'none',
   };
 

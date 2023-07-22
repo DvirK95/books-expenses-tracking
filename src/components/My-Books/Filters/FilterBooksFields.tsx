@@ -12,7 +12,7 @@ function FilterBooksFields(prop: FilterBooksProps) {
     onPriceChange,
   } = prop;
   return (
-    <Row>
+    <Row margin="1.5rem 0">
       <Col size={3}>
         <div className="btn-wrapper-center">
           <input

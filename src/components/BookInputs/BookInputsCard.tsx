@@ -26,7 +26,9 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
   return (
     <>
       <input
-        className="book-inputs-field"
+        className={`book-inputs-field${
+          alertType === 'error' && !bookName ? ' error' : ''
+        }`}
         type="text"
         id="name"
         name="name"
@@ -35,7 +37,9 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
         onChange={(e) => setBookName(e.target.value)}
       />
       <input
-        className="book-inputs-field"
+        className={`book-inputs-field${
+          alertType === 'error' && !author ? ' error' : ''
+        }`}
         type="text"
         placeholder="Book_author"
         id="author"
@@ -45,7 +49,9 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
       />
       <DatePicker
         placeholderText="Purchase_date"
-        className={`book-inputs-field ${edit ? 'book-inputs-field-edit' : ''}`}
+        className={`book-inputs-field${
+          alertType === 'error' && !purchaseDate ? ' error' : ''
+        }${edit ? ' book-inputs-field-edit' : ''}`}
         selected={edit ? new Date(purchaseDate) : new Date()}
         value={isoStrToDateStr(purchaseDate)}
         onChange={onChangeHandler}
@@ -54,7 +60,9 @@ function BookInputsCard({ edit, toggleModal }: BookInputsCardProp) {
         dateFormat="dd/MM/yyyy"
       />
       <input
-        className="book-inputs-field"
+        className={`book-inputs-field${
+          alertType === 'error' && !price ? ' error' : ''
+        }`}
         placeholder="price"
         type="number"
         id="price"

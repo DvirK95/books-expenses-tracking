@@ -20,7 +20,6 @@ function FilterBooks(prop: FilterBooksProps) {
           </div>
         </Col>
       </Row>
-      <br />
       <FilterBooksFields
         filters={prop.filters}
         onBookNameChange={prop.onBookNameChange}
