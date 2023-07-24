@@ -1,4 +1,4 @@
-import { isoStrToDateStr } from '../../assets/formatDate';
+import { isoStrToDateStr } from '../../Assets/formatDate';
 import Alert from '../Alert/Alert';
 import './BookInputsCard.css';
 import { useInputsCard } from './useBookInputsCard';

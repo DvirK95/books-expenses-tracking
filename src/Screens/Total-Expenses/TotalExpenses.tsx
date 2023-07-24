@@ -1,4 +1,4 @@
-import { Col, Container, Row } from '../../components/Grid/Grid';
+import { Col, Container, Row } from '../../Components/Grid/Grid';
 import './TotalExpneses.css';
 import useTotalExpeneses from './useTotalExpenses';
 

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import FilterBooks from '../../components/My-Books/Filters/FilterBooks';
-import BookExpenses from '../../components/My-Books/BookExpenses/BookExpenses';
-import { Container } from '../../components/Grid/Grid';
+import FilterBooks from '../../Components/My-Books/Filters/FilterBooks';
+import BookExpenses from '../../Components/My-Books/BookExpenses/BookExpenses';
+import { Container } from '../../Components/Grid/Grid';
 import useFilterization from './hooks/useFilterization';
-import Book from '../../models/book-model';
-import { isoStrToDateStr } from '../../assets/formatDate';
+import Book from '../../Models/book-model';
+import { isoStrToDateStr } from '../../Assets/formatDate';
 import useSectorization from './hooks/useSectorization';
 
 function MyBooks() {

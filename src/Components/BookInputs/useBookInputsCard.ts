@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook, updateBook } from '../../store/book-actions';
-import Book from '../../models/book-model';
+import Book from '../../Models/book-model';
 import { AppDispatch, RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 export interface BookInputsCardProp {

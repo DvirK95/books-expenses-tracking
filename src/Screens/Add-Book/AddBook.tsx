@@ -1,6 +1,6 @@
-import Card from '../../components/Cards/Card';
-import BookInputsCard from '../../components/BookInputs/BookInputsCard';
-import { Container } from '../../components/Grid/Grid';
+import Card from '../../Components/Cards/Card';
+import BookInputsCard from '../../Components/BookInputs/BookInputsCard';
+import { Container } from '../../Components/Grid/Grid';
 function AddBook() {
   return (
     <Container width="45rem">

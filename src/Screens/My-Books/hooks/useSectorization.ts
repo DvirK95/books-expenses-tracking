@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
-import Book from '../../../models/book-model';
+import Book from '../../../Models/book-model';
 
 function useSectorization() {
   let allBooks = useSelector((state: RootState) => state.book.books);

@@ -1,4 +1,4 @@
-import Book from '../models/book-model';
+import Book from '../Models/book-model';
 import { bookActions } from './book-slice';
 import { AppDispatch } from './store';
 

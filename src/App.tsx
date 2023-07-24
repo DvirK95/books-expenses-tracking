@@ -1,11 +1,11 @@
-import Login from './screens/Login/Login';
-import Navbar from './components/Navbar/Navbar';
+import Login from './Screens/Login/Login';
+import Navbar from './Components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { RootState } from './store/store';
 import { useSelector } from 'react-redux';
-import MyBooks from './screens/My-Books/MyBooks';
-import AddBook from './screens/Add-Book/AddBook';
-import TotalExpenses from './screens/Total-Expenses/TotalExpenses';
+import MyBooks from './Screens/My-Books/MyBooks';
+import AddBook from './Screens/Add-Book/AddBook';
+import TotalExpenses from './Screens/Total-Expenses/TotalExpenses';
 
 function App() {
   const isLoggedIn = useSelector((state: RootState) => state.menu.isLogIn);

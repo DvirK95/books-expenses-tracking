@@ -1,4 +1,4 @@
-import Book from '../../../../models/book-model';
+import Book from '../../../../Models/book-model';
 
 export interface ToggleDropDownProps {
   book: Book;

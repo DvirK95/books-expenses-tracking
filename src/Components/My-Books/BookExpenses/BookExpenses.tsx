@@ -6,8 +6,8 @@ import useBookExpenses from './useBookExpenses';
 import './BookExpenses.css';
 import Dropdown from './DropDown/Dropdown';
 import EditBook from './EditBook/EditBook';
-import { isoStrToDateStr } from '../../../assets/formatDate';
-import Book from '../../../models/book-model';
+import { isoStrToDateStr } from '../../../Assets/formatDate';
+import Book from '../../../Models/book-model';
 
 interface BookExpensesProp {
   booksArr: Book[];

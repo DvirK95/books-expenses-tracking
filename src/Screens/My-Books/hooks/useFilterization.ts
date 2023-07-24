@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Book from '../../../models/book-model';
+import Book from '../../../Models/book-model';
 
 function useFilterization() {
   const cleanFilter = {
